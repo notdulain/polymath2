@@ -11,6 +11,11 @@ import GrainEffect from "@/components/grain-effect"
 import FloatingParticles from "@/components/floating-particles"
 import HorizontalScroll from "@/components/horizontal-scroll"
 import { cn } from "@/lib/utils"
+import PolymathBar from "@/components/polymath-bar"
+import FlyersGrid from "@/components/flyers-grid"
+import VideosGrid from "@/components/videos-grid"
+import ToastmastersSection from "@/components/toastmasters-section"
+import BeyondDesign from "@/components/beyond-design"
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -337,6 +342,21 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
+
+      {/* Polymath Bar */}
+      <PolymathBar />
+
+      {/* Flyers Section */}
+      <FlyersGrid />
+
+      {/* Videos Section */}
+      <VideosGrid />
+
+      {/* Toastmasters Section */}
+      <ToastmastersSection />
+
+      {/* Beyond Design Section */}
+      <BeyondDesign />
 
       {/* Section Divider */}
       <div className="relative h-24">

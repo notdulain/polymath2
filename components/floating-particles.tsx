@@ -1,15 +1,33 @@
 "use client"
 import { motion } from "framer-motion"
+import { useState, useEffect } from "react"
+
+type Particle = {
+  id: number
+  x: number
+  y: number
+  size: number
+  duration: number
+  delay: number
+}
 
 export default function FloatingParticles() {
-  const particles = Array.from({ length: 20 }).map((_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 2 + 1,
-    duration: Math.random() * 20 + 10,
-    delay: Math.random() * 5,
-  }))
+  const [particles, setParticles] = useState<Particle[]>([])
+  
+  useEffect(() => {
+    // Generate particles only on the client
+    const newParticles = Array.from({ length: 20 }).map((_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 2 + 1,
+      duration: Math.random() * 20 + 10,
+      delay: Math.random() * 5,
+    }))
+    setParticles(newParticles)
+  }, [])
+
+  if (particles.length === 0) return null
 
   return (
     <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
