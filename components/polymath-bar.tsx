@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 
-const polymathText = "Polymath · Video Editor · Flyer Designer · Photographer · Toastmaster · Violinist · Computer Science Student · "
+const polymathText = "Researcher · Video Editor · Graphic Designer · Photographer · Toastmaster · Violinist · Computer Science Student · Cinephile · Reader ·"
 
 export default function PolymathBar() {
   return (
@@ -20,7 +20,7 @@ export default function PolymathBar() {
         }}
       >
         <span className="text-zinc-500 text-sm tracking-wide font-light">
-          {polymathText.repeat(3)}
+          {polymathText.repeat(10)}
         </span>
       </motion.div>
     </div>

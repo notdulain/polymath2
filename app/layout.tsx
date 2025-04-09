@@ -14,9 +14,13 @@ const playfair = Playfair_Display({
 })
 
 export const metadata = {
-  title: "Dulain | Creative Developer",
+  title: "Dulain",
   description: "Personal portfolio of Dulain - Creative developer, storyteller, and visual designer",
-    generator: 'v0.dev'
+  icons: {
+    icon: "/favicon.ico", // for general use
+    shortcut: "/favicon.ico", // for older browsers
+    apple: "/favicon.png", // if you have one
+  }
 }
 
 export default function RootLayout({

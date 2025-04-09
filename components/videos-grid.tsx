@@ -5,7 +5,7 @@ const videos = [
   {
     id: 1,
     title: "Video Title 1",
-    preview: "/videos/preview1.mp4",
+    preview: "/videos/promo.mp4",
     link: "https://instagram.com/p/..."
   },
   // Add more videos here
@@ -33,7 +33,7 @@ export default function VideosGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group relative aspect-[16/9] rounded-lg overflow-hidden"
+              className="group relative aspect-[9/16] rounded-lg overflow-hidden"
             >
               <video
                 src={video.preview}
@@ -60,7 +60,7 @@ export default function VideosGrid() {
           className="mt-12 text-center"
         >
           <Link
-            href="/videos"
+            href="/videoEditor"
             className="inline-block px-8 py-3 rounded-full border border-zinc-700 text-zinc-700 hover:bg-zinc-700 hover:text-white transition-colors duration-200"
           >
             View All Videos

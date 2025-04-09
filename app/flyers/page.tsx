@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
+import { Play, ChevronLeft } from "lucide-react"
 
 const flyers = [
   {
@@ -74,12 +75,22 @@ export default function FlyersPage() {
   return (
     <div className="min-h-screen bg-zinc-900 text-zinc-100 py-24 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
+
+      <Link
+          href="/"
+          className="inline-flex items-center text-[#F4F4F5]/70 hover:text-[#F4F4F5] transition-colors mb-12"
+        >
+          <ChevronLeft className="h-4 w-4 mr-2" />
+          <span className="text-sm tracking-wide">Back to Home</span>
+        </Link>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="mb-12"
         >
+          <p className="text-sm uppercase tracking-widest text-[#F4F4F5]/60 font-light">Portfolio</p>
           <h1 className="text-4xl md:text-5xl font-light tracking-tight">Graphic Design Portfolio</h1>
           <p className="text-zinc-400 mt-4">A collection of event flyers and promotional materials</p>
         </motion.div>
