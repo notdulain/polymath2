@@ -319,7 +319,7 @@ export default function Home() {
                 className="mt-8 bg-transparent hover:bg-white/10 text-white border border-white/30 rounded-full px-8 py-6 relative overflow-hidden group"
                 onClick={() => scrollToSection(workRef)}
               >
-                <span className="relative z-10">View My Work</span>
+                <span className="relative z-10">Who is this Dulain?</span>
                 <span className="absolute inset-0 bg-white/10 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></span>
                 <span className="absolute -inset-px bg-gradient-to-r from-white/30 to-white/10 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500 rounded-full"></span>
               </Button>
@@ -380,7 +380,7 @@ export default function Home() {
           }}
         >
           <motion.div
-            className="aspect-square relative rounded-2xl overflow-hidden bg-[#D4CBC4]/20 shadow-2xl"
+            className="aspect-[4/5] relative rounded-2xl overflow-hidden bg-[#D4CBC4]/20 shadow-2xl"
             style={{ y: aboutImageY }}
             variants={{
               hidden: { opacity: 0, y: 40 },
@@ -391,7 +391,7 @@ export default function Home() {
               },
             }}
           >
-            <Image src="/placeholder.svg?height=600&width=600" alt="Dulain portrait" fill className="object-cover" />
+            <Image src="/actualDulain.jpg"alt="Dulain portrait" fill className="object-cover" style={{ objectPosition: "50% 30%" }} />
             <div className="absolute inset-0 bg-gradient-to-t from-[#2C2C2C]/20 to-transparent"></div>
           </motion.div>
 
@@ -410,19 +410,21 @@ export default function Home() {
               01 — About
             </motion.p>
 
-            <motion.h2
-              className="text-4xl md:text-5xl font-light font-display tracking-tight"
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] },
-                },
-              }}
-            >
-              The story behind the work
-            </motion.h2>
+            <section ref={workRef} className="relative">
+              <motion.h2
+                className="text-4xl md:text-5xl font-light font-display tracking-tight"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] },
+                  },
+                }}
+              >
+                Seriously, who am I??
+              </motion.h2>
+            </section>  
 
             <motion.p
               className="text-lg leading-relaxed text-[#2C2C2C]/80"
@@ -435,8 +437,11 @@ export default function Home() {
                 },
               }}
             >
-              I craft interfaces, tell visual stories, and blend code with creativity. With a background in both design
-              and development, I bring a holistic approach to every project.
+              I'm Dulain — a computer science undergrad who loves digging deep into how things work.
+              I'm that guy who can't rest until I understand something to the core, and then I try to explain it 
+              in a way that even a 10-year-old could get. 
+              I don't just study concepts — I break them apart, rebuild them, and give them my own twist. 
+              That's kind of my thing.
             </motion.p>
 
             <motion.p
@@ -450,9 +455,45 @@ export default function Home() {
                 },
               }}
             >
-              My work is driven by a passion for creating experiences that are both beautiful and functional. I believe
-              in the power of simplicity and the impact of thoughtful design.
+              I'm also a graphic designer and a video editor who enjoys telling stories — not with words alone, 
+              but with visuals, sounds, and rhythm. I've been editing videos and designing flyers for years now, 
+              mostly for Toastmasters, and it's become one of my favorite creative outlets. 
+              I get a weird amount of joy from making stuff look and feel just right.
             </motion.p>
+
+            <motion.p
+              className="text-lg leading-relaxed text-[#2C2C2C]/80"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] },
+                },
+              }}
+            >
+              I'm a Toastmaster, a violinist, a guitarist, a researcher... basically a polymath — 
+              someone who loves doing a lot of different things, and doing them well. 
+              Whether I'm on stage speaking, behind the camera shooting, or in front of a screen writing code,
+              I always try to bring something unique to the table.
+            </motion.p>
+
+            <motion.p
+              className="text-lg leading-relaxed text-[#2C2C2C]/80"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] },
+                },
+              }}
+            >
+              At the end of the day, I'm just someone who likes building cool things, 
+              solving problems, and helping others see the fun side of learning.
+            </motion.p>
+
+
           </motion.div>
         </motion.div>
       </section>
@@ -495,7 +536,7 @@ export default function Home() {
       </div>
 
       {/* Selected Work Section */}
-      <section ref={workRef} className="relative py-24 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
+      <div className="relative py-24 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
         <motion.div className="mb-16 space-y-2">
           <motion.p
             className="text-sm uppercase tracking-widest text-[#2C2C2C]/60 font-light"
@@ -575,7 +616,7 @@ export default function Home() {
             </motion.div>
           ))}
         </motion.div>
-      </section>
+      </div>
 
       {/* Section Divider */}
       <div className="relative h-24">
