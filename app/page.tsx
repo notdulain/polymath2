@@ -152,11 +152,11 @@ export default function Home() {
               ].map((item, index) => (
                 <motion.button
                   key={index}
-                  className="text-zinc-700 hover:text-white transition-colors"
+                  className="text-zinc-700 hover:text-white transition-colors duration-200"
                   onClick={() => scrollToSection(item.ref)}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.1 * index + 0.3 }}
+                  transition={{ duration: 0.4}}
                   whileHover={{ y: -2 }}
                 >
                   {item.name}
@@ -239,7 +239,7 @@ export default function Home() {
               src="/mainPortrait.jpg?height=1080&width=1920"
               alt="Dulain portrait"
               fill
-              className="object-cover"
+              className="object-cover object-[80%] md:object-center"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#2C2C2C]/70 to-transparent"></div>
