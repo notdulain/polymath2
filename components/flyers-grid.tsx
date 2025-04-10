@@ -29,6 +29,9 @@ const flyers = [
   // Add more flyers here
 ]
 
+// Duplicate flyers to create a seamless loop
+const loopingFlyers = [...flyers, ...flyers]
+
 export default function FlyersGrid() {
   return (
     <section className="py-24 px-4 md:px-6">
@@ -46,16 +49,16 @@ export default function FlyersGrid() {
         <div className="overflow-hidden">
           <motion.div
             className="flex space-x-8"
-            animate={{ x: ["-100%", "100%"] }} // Move from right to left
+            animate={{ x: ["0%", "-100%"] }}
             transition={{
-              duration: 20, // Adjust speed of the animation
+              duration: 10, // Adjust speed of the animation
               ease: "linear",
               repeat: Infinity, // Infinite loop
             }}
           >
-            {flyers.map((flyer, index) => (
+            {loopingFlyers.map((flyer, index) => (
               <motion.div
-                key={flyer.id}
+                key={index}
                 className="group relative aspect-[3/4] rounded-lg overflow-hidden flex-shrink-0 w-[300px]" // Adjust width as needed
               >
                 <Image
