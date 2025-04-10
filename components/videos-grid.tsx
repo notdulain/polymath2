@@ -63,7 +63,7 @@ export default function VideosGrid() {
             href="/videoEditor"
             className="inline-block px-8 py-3 rounded-full border border-zinc-700 text-zinc-700 hover:bg-zinc-700 hover:text-white transition-colors duration-200"
           >
-            View All Videos
+            View All Edits
           </Link>
         </motion.div>
       </div>

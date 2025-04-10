@@ -86,7 +86,7 @@ export default function FlyersGrid() {
             href="/flyers"
             className="inline-block px-8 py-3 rounded-full border border-zinc-700 text-zinc-700 hover:bg-zinc-700 hover:text-white transition-colors duration-200"
           >
-            View All Flyers
+            View All Designs
           </Link>
         </motion.div>
       </div>

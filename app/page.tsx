@@ -787,7 +787,7 @@ export default function Home() {
             }}
           >
             <motion.a
-              href="https://github.com"
+              href="https://github.com/notdulain"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -5, scale: 1.1 }}
@@ -798,7 +798,7 @@ export default function Home() {
               <span className="sr-only">GitHub</span>
             </motion.a>
             <motion.a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/dulain-nethwin-gunawardhana-41b251294/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -5, scale: 1.1 }}
@@ -809,7 +809,7 @@ export default function Home() {
               <span className="sr-only">LinkedIn</span>
             </motion.a>
             <motion.a
-              href="https://instagram.com"
+              href="https://instagram.com/notdulain/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -5, scale: 1.1 }}
