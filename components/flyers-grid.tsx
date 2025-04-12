@@ -1,6 +1,8 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
+import { useRef } from "react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const flyers = [
   {
@@ -29,10 +31,19 @@ const flyers = [
   // Add more flyers here
 ]
 
-// Duplicate flyers to create a seamless loop
-const loopingFlyers = [...flyers, ...flyers]
-
 export default function FlyersGrid() {
+  const scrollRef = useRef(null)
+
+  const scroll = (direction) => {
+    const container = scrollRef.current
+    if (!container) return
+    const scrollAmount = 300
+    container.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    })
+  }
+
   return (
     <section className="py-24 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
@@ -46,17 +57,13 @@ export default function FlyersGrid() {
           <h2 className="text-4xl md:text-5xl font-light tracking-tight">The Wall</h2>
         </motion.div>
 
-        <div className="overflow-hidden">
-          <motion.div
-            className="flex space-x-8"
-            animate={{ x: ["0%", "-100%"] }}
-            transition={{
-              duration: 10, // Adjust speed of the animation
-              ease: "linear",
-              repeat: Infinity, // Infinite loop
-            }}
+        <div className="relative">
+          <div
+            ref={scrollRef}
+            className="flex space-x-8 overflow-x-auto no-scrollbar scroll-smooth touch-pan-x"
           >
-            {loopingFlyers.map((flyer, index) => (
+
+            {flyers.map((flyer, index) => (
               <motion.div
                 key={index}
                 className="group relative aspect-[3/4] rounded-lg overflow-hidden flex-shrink-0 w-[300px]" // Adjust width as needed
@@ -75,7 +82,21 @@ export default function FlyersGrid() {
                 </div>
               </motion.div>
             ))}
-          </motion.div>
+        </div>
+
+        {/* Arrows for Desktop */}
+        <button
+            onClick={() => scroll('left')}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 text-white hover:scale-125 transition-transform duration-200"
+          >
+            <ChevronLeft className="w-10 h-10" />
+          </button>
+          <button
+            onClick={() => scroll('right')}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 text-white hover:scale-125 transition-transform duration-200"
+          >
+            <ChevronRight className="w-10 h-10" />
+          </button>
         </div>
 
         <motion.div
