@@ -498,7 +498,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Gallery Section
+      {/* Gallery Section */}
       <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="px-4 md:px-6 max-w-7xl mx-auto mb-12">
           <motion.p
@@ -523,7 +523,7 @@ export default function Home() {
         </div>
 
         <HorizontalScroll images={galleryImages} />
-      </section> */}
+      </section>
 
       {/* Section Divider */}
       <div className="relative h-24">
