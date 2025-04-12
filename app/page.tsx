@@ -16,6 +16,8 @@ import FlyersGrid from "@/components/flyers-grid"
 import VideosGrid from "@/components/videos-grid"
 import ToastmastersSection from "@/components/toastmasters-section"
 import BeyondDesign from "@/components/beyond-design"
+import { link } from "fs"
+import Link from "next/link"
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -67,24 +69,28 @@ export default function Home() {
       description: "A minimalist approach to showcasing creative work",
       image: "/placeholder.svg?height=600&width=800",
       category: "DESIGN",
+      link: "#",
     },
     {
       title: "E-Commerce Platform",
       description: "Modern shopping experience with seamless checkout",
       image: "/placeholder.svg?height=600&width=800",
       category: "DEVELOPMENT",
+      link: "#",
     },
     {
       title: "Travel Journal App",
       description: "Document adventures with an intuitive mobile interface",
       image: "/placeholder.svg?height=600&width=800",
       category: "MOBILE",
+      link: "#",
     },
     {
       title: "Music Visualization",
       description: "Interactive audio experience with custom animations",
       image: "/placeholder.svg?height=600&width=800",
       category: "CREATIVE",
+      link: "#",
     },
   ]
 
@@ -317,7 +323,7 @@ export default function Home() {
             >
               <Button
                 className="mt-8 bg-transparent hover:bg-white/10 text-white border border-white/30 rounded-full px-8 py-6 relative overflow-hidden group"
-                onClick={() => scrollToSection(workRef)}
+                onClick={() => scrollToSection(aboutRef)}
               >
                 <span className="relative z-10">Who is this Dulain?</span>
                 <span className="absolute inset-0 bg-white/10 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></span>
@@ -410,7 +416,7 @@ export default function Home() {
               01 — About
             </motion.p>
 
-            <section ref={workRef} className="relative">
+            <section ref={aboutRef} className="relative">
               <motion.h2
                 className="text-4xl md:text-5xl font-light font-display tracking-tight"
                 variants={{
@@ -536,7 +542,7 @@ export default function Home() {
       </div>
 
       {/* Selected Work Section */}
-      <div className="relative py-24 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
+      <div ref={workRef} className="relative py-24 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
         <motion.div className="mb-16 space-y-2">
           <motion.p
             className="text-sm uppercase tracking-widest text-[#2C2C2C]/60 font-light"
@@ -596,20 +602,19 @@ export default function Home() {
                   <span className="text-xs tracking-widest text-white/80 font-light">{project.category}</span>
                 </div>
 
-                <div className="absolute inset-0 flex flex-col justify-end p-6">
+                <div className="absolute inset-0 flex flex-col justify-end p-6 pointer-events-none group-hover:pointer-events-auto transition-all duration-300">
                   <h3 className="text-2xl font-medium text-white font-display">{project.title}</h3>
                   <p className="text-white/80 mt-2 max-w-xs">{project.description}</p>
 
-                  <div className="mt-6 overflow-hidden h-8">
-                    <motion.div
-                      className="flex items-center text-white/80 text-sm"
-                      initial={{ y: 30, opacity: 0 }}
-                      whileHover={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.3 }}
+                  <div className="overflow-hidden h-0 group-hover:h-10 transition-all duration-300 mt-4">
+                    <Link
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block px-4 py-2 rounded-full border border-zinc-400 text-zinc-400 hover:bg-zinc-400 hover:text-zinc-900 text-sm transition-colors duration-200"
                     >
-                      <span className="mr-2">View Project</span>
-                      <ChevronRight className="h-4 w-4" />
-                    </motion.div>
+                      View on GitHub
+                    </Link>
                   </div>
                 </div>
               </div>
