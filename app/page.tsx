@@ -442,11 +442,9 @@ export default function Home() {
                 },
               }}
             >
-              I'm Dulain — a computer science undergrad who loves digging deep into how things work.
-              I'm that guy who can't rest until I understand something to the core, and then I try to explain it 
-              in a way that even a 10-year-old could get. 
-              I don't just study concepts — I break them apart, rebuild them, and give them my own twist. 
-              That's kind of my thing.
+              Long story short: I'm Dulain Gunawardhana — born and raised in the scenic hills of Hanthana, Kandy. 
+              I studied at Dharmaraja College from grade 1 all the way through A/Ls, 
+              and now Im a second-year undergraduate at SLIIT, working my way through a BSc in Computer Science.
             </motion.p>
 
             <motion.p
@@ -460,10 +458,10 @@ export default function Home() {
                 },
               }}
             >
-              I'm also a graphic designer and a video editor who enjoys telling stories — not with words alone, 
-              but with visuals, sounds, and rhythm. I've been editing videos and designing flyers for years now, 
-              mostly for Toastmasters, and it's become one of my favorite creative outlets. 
-              I get a weird amount of joy from making stuff look and feel just right.
+              Beyond the academics, I've found my rhythm in Toastmasters — currently serving as 
+              the VPPR of Central Link Toastmasters Club and the Division PR Manager of Division J, District 82. 
+              My work revolves around design, video, code, and storytelling — all of which I use to bring ideas to life, 
+              run campaigns, and create impact wherever I can.
             </motion.p>
 
             <motion.p
@@ -477,27 +475,9 @@ export default function Home() {
                 },
               }}
             >
-              I'm a Toastmaster, a violinist, a guitarist, a researcher... basically a polymath — 
-              someone who loves doing a lot of different things, and doing them well. 
-              Whether I'm on stage speaking, behind the camera shooting, or in front of a screen writing code,
-              I always try to bring something unique to the table.
+             I'm also someone who wears many hats — editor, reader, violinist, guitarist, researcher, coder — 
+             constantly jumping between the creative and the technical, and loving every bit of it.
             </motion.p>
-
-            <motion.p
-              className="text-lg leading-relaxed text-[#2C2C2C]/80"
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] },
-                },
-              }}
-            >
-              At the end of the day, I'm just someone who likes building cool things, 
-              solving problems, and helping others see the fun side of learning.
-            </motion.p>
-
 
           </motion.div>
         </motion.div>
