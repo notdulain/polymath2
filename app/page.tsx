@@ -16,7 +16,6 @@ import FlyersGrid from "@/components/flyers-grid"
 import VideosGrid from "@/components/videos-grid"
 import ToastmastersSection from "@/components/toastmasters-section"
 import BeyondDesign from "@/components/beyond-design"
-import { link } from "fs"
 import Link from "next/link"
 
 export default function Home() {
@@ -254,7 +253,7 @@ export default function Home() {
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#2C2C2C]/70 to-transparent"></div>
-            <div className="absolute inset-0 bg-[#2C2C2C]/30"></div>
+            {/* <div className="absolute inset-0 bg-[#2C2C2C]/10"></div> */}
           </div>
         </motion.div>
 
@@ -280,7 +279,7 @@ export default function Home() {
               </motion.h1>
 
               <motion.h2
-                className="text-3xl md:text-5xl font-light tracking-wide font-display text-white/90"
+                className="text-3xl md:text-4xl font-light tracking-wide font-display text-white/90"
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
                 animate={heroInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.95 }}
                 transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
@@ -302,8 +301,8 @@ export default function Home() {
                 <span className="italic">noun.</span>
               </p>
               <p className="text-sm text-white/70 font-light">
-                A person of wide-ranging knowledge and diverse creative skills — one who thrives at the intersection of
-                art, science, and storytelling.
+                An individual whose knowledge spans many different subjects and diverse creative skills — one who thrives at the intersection of
+                science, art and philosophy.
               </p>
             </motion.div>
 
@@ -313,7 +312,7 @@ export default function Home() {
               animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 1.2, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
-              I craft interfaces, tell visual stories, and blend code with creativity.
+              I design visuals, edit stories, and use code to bring creative ideas to life.
             </motion.p>
 
             <motion.div
