@@ -43,32 +43,253 @@ const flyers = [
   },
   {
     id: 6,
-    title: "Speech Contest",
-    date: "October 2023",
-    image: "/placeholder.svg",
-    link: "#"
+    title: "Themed Meeting",
+    date: "January 2025",
+    image: "/flyers/laksTMOD.png",
+    link: "https://www.instagram.com/p/DEm6YwAv6BM/?utm_source=ig_web_copy_link"
   },
   {
     id: 7,
-    title: "Workshop Series",
-    date: "September 2023",
-    image: "/placeholder.svg",
-    link: "#"
+    title: "Promotional Flyer",
+    date: "January 2025",
+    image: "/flyers/CLTCpromo.jpg",
+    link: "https://www.instagram.com/p/DFX49fGPwmw/?utm_source=ig_web_copy_link"
   },
   {
     id: 8,
-    title: "New Member Orientation",
-    date: "August 2023",
-    image: "/placeholder.svg",
-    link: "#"
+    title: "New Year Flyer",
+    date: "January 2025",
+    image: "/flyers/clubNewYear.jpg",
+    link: "https://www.instagram.com/p/DERi5dBv6b9/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
     id: 9,
-    title: "Summer Social",
-    date: "July 2023",
-    image: "/placeholder.svg",
+    title: "New Year Flyer",
+    date: "January 2025",
+    image: "/flyers/divisionNewYear.png",
+    link: "https://www.instagram.com/p/DEQX2oaBpbl/?utm_source=ig_web_copy_link"
+  },
+  {
+    id: 10,
+    title: "Newsletter Announcement",
+    date: "April 2025",
+    image: "/flyers/emergeFlyer1.jpg",
+    link: "https://www.instagram.com/p/DH-87rHhtGr/?utm_source=ig_web_copy_link"
+  },
+  {
+    id: 11,
+    title: "Newsletter Announcement",
+    date: "April 2025",
+    image: "/flyers/emergeFlyer2.jpg",
+    link: "https://www.instagram.com/p/DH-8478hN0x/?utm_source=ig_web_copy_link"
+  },
+  {
+    id: 12,
+    title: "Halloween 2023",
+    date: "November 2023",
+    image: "/flyers/halloween.jpg",
     link: "#"
-  }
+  },
+  {
+    id: 13,
+    title: "Division Council Meeting",
+    date: "June 2025",
+    image: "/flyers/councilMeeting.jpg",
+    link: "https://www.instagram.com/p/DIt6PPYy9Yd/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 14,
+    title: "Division Council Meeting Agenda",
+    date: "June 2025",
+    image: "/flyers/councilMeetingAgenda.jpg",
+    link: "https://www.instagram.com/p/DIt6PPYy9Yd/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 15,
+    title: "Good Luck Flyer for TM Farweez",
+    date: "May 2025",
+    image: "/flyers/tripleThreat.png",
+    link: "https://www.instagram.com/p/DJTxl_Svxdc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 16,
+    title: "Good Luck Flyer for District semi's",
+    date: "May 2025",
+    image: "/flyers/semisGoodluck.jpg",
+    link: "https://www.instagram.com/p/DJHHkmHPEqn/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 17,
+    title: "Awareness Program at ESOFT",
+    date: "June 2025",
+    image: "/flyers/esoftAwareness.jpg",
+    link: "#"
+  },
+  {
+    id: 18,
+    title: "Thank You Flyer for DTM Yasir",
+    date: "July 2024",
+    image: "/flyers/yasirThanks.jpg",
+    link: "https://www.instagram.com/p/C9L8vL2q5T1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 19,
+    title: "Themed Meeting",
+    date: "May 2024",
+    image: "/flyers/laworder.jpg",
+    link: "https://www.instagram.com/p/C7GzWzXPLfP/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 20,
+    title: "TMPL 2024",
+    date: "February 2024",
+    image: "/flyers/TMPL2024.png",
+    link: "https://www.instagram.com/p/C2Fg9kwtoeC/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 21,
+    title: "TMPL 2025",
+    date: "May 2025",
+    image: "/flyers/TMPLwebsite.png",
+    link: "https://www.instagram.com/p/DJdUhX9BqjB/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 22,
+    title: "HSC & ESC 2024",
+    date: "September 2024",
+    image: "/flyers/HSCmain.jpg",
+    link: "https://www.instagram.com/p/C_seABUPP8k/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 23,
+    title: "HSC & ESC 2024",
+    date: "September 2024",
+    image: "/flyers/HSCchair.jpg",
+    link: "https://www.instagram.com/p/C_uPo4tPYbT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 24,
+    title: "HSC & ESC 2024",
+    date: "September 2024",
+    image: "/flyers/HSCmasters.jpg",
+    link: "https://www.instagram.com/p/C_uPzxVvskD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 25,
+    title: "HSC & ESC 2024",
+    date: "September 2024",
+    image: "/flyers/HSCtomorrow.jpg",
+    link: "https://www.instagram.com/p/C_4jBRvtpo7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 26,
+    title: "Exco 24/25",
+    date: "July 2025",
+    image: "/flyers/exco24.jpg",
+    link: "https://www.instagram.com/p/C9Uvh_IvFRW/?utm_source=ig_web_copy_link"
+  },
+  {
+    id: 24,
+    title: "Themed Meeting",
+    date: "February 2025",
+    image: "/flyers/valentine.png",
+    link: "https://www.instagram.com/p/DGVW186PmaZ/?utm_source=ig_web_copy_link"
+  },
+  {
+    id: 25,
+    title: "Newsletter Cover",
+    date: "Read Emerge",
+    image: "/flyers/emergeCover.jpg",
+    link: "#"
+  },
+  {
+    id: 26,
+    title: "Themed Meeting",
+    date: "October 2023",
+    image: "/flyers/friendship.jpg",
+    link: "https://www.instagram.com/p/CyC2nP1tqni/?utm_source=ig_web_copy_link"
+  },
+  {
+    id: 27,
+    title: "Themed Meeting",
+    date: "July 2024",
+    image: "/flyers/devsTMOD.jpg",
+    link: "https://www.instagram.com/p/C8_oGCcP0kw/?utm_source=ig_web_copy_link"
+  },
+  {
+    id: 28,
+    title: "Division Conference - J&F",
+    date: "January 2025",
+    image: "/flyers/JFteaser.png",
+    link: "https://www.instagram.com/p/DFOu2X7Mejv/?utm_source=ig_web_copy_link"
+  },
+  {
+    id: 29,
+    title: "Division Conference - J&F",
+    date: "January 2025",
+    image: "/flyers/JFmain.jpg",
+    link: "https://www.instagram.com/p/DGKbo4ovWF_/?utm_source=ig_web_copy_link"
+  },
+  {
+    id: 30,
+    title: "Division Conference - J&F",
+    date: "January 2025",
+    image: "/flyers/JFregsOpen.png",
+    link: "https://www.instagram.com/p/DGhVkkvvMj8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 31,
+    title: "Division Conference - J&F",
+    date: "January 2025",
+    image: "/flyers/JFregs.png",
+    link: "https://www.instagram.com/p/DHVH5dvPhKh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 32,
+    title: "Division Conference - J&F",
+    date: "January 2025",
+    image: "/flyers/JFregsClose.png",
+    link: "https://www.instagram.com/p/DHnaJOZvUGv/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 32,
+    title: "Division Conference - J&F",
+    date: "January 2025",
+    image: "/flyers/JFregsClose.png",
+    link: "https://www.instagram.com/p/DHnaJOZvUGv/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 33,
+    title: "Division Conference - J&F",
+    date: "January 2025",
+    image: "/flyers/JFvolunteers.png",
+    link: "#"
+  },
+  {
+    id: 34,
+    title: "Good Luck Flyer for TM Farweez",
+    date: "May 2025",
+    image: "/flyers/",
+    link: "#"
+  },{
+    id: 34,
+    title: "Good Luck Flyer for TM Farweez",
+    date: "May 2025",
+    image: "/flyers/",
+    link: "#"
+  },{
+    id: 34,
+    title: "Good Luck Flyer for TM Farweez",
+    date: "May 2025",
+    image: "/flyers/",
+    link: "#"
+  },{
+    id: 34,
+    title: "Good Luck Flyer for TM Farweez",
+    date: "May 2025",
+    image: "/flyers/",
+    link: "#"
+  },
 ]
 
 export default function FlyersPage() {
