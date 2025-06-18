@@ -8,38 +8,38 @@ import { Play, ChevronLeft } from "lucide-react"
 const flyers = [
   {
     id: 1,
-    title: "Toastmasters Club Meeting",
-    date: "March 2024",
+    title: "Central Centennial",
+    date: "December 2024",
     image: "/flyers/centennialMain.jpg",
-    link: "#"
+    link: "https://www.instagram.com/p/DDrd-YDvxXD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
     id: 2,
-    title: "Leadership Workshop",
-    date: "February 2024",
-    image: "/placeholder.svg",
-    link: "#"
+    title: "Central Centennial",
+    date: "December 2024",
+    image: "/flyers/centennial2days.jpg",
+    link: "https://www.instagram.com/p/DEE59zHv1ji/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
     id: 3,
-    title: "Public Speaking Seminar",
-    date: "January 2024",
-    image: "/placeholder.svg",
-    link: "#"
+    title: "Central Centennial",
+    date: "December 2024",
+    image: "/flyers/centennialTomorrow.jpg",
+    link: "https://www.instagram.com/p/DEHOkRIPlUI/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
     id: 4,
-    title: "Division Conference",
-    date: "December 2023",
-    image: "/placeholder.svg",
-    link: "#"
+    title: "Central Centennial",
+    date: "December 2024",
+    image: "/flyers/centennialCountdown1.png",
+    link: "https://www.instagram.com/p/DDlhihTPjy_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
     id: 5,
-    title: "Club Anniversary",
-    date: "November 2023",
-    image: "/placeholder.svg",
-    link: "#"
+    title: "Central Centennial",
+    date: "December 2024",
+    image: "/flyers/centennialCountdown2.png",
+    link: "https://www.instagram.com/p/DDoOBS0t4bv/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
     id: 6,
