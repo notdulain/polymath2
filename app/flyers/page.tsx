@@ -189,124 +189,110 @@ const flyers = [
     link: "https://www.instagram.com/p/C9Uvh_IvFRW/?utm_source=ig_web_copy_link"
   },
   {
-    id: 24,
+    id: 27,
     title: "Themed Meeting",
     date: "February 2025",
     image: "/flyers/valentine.png",
     link: "https://www.instagram.com/p/DGVW186PmaZ/?utm_source=ig_web_copy_link"
   },
   {
-    id: 25,
+    id: 28,
     title: "Newsletter Cover",
     date: "Read Emerge",
     image: "/flyers/emergeCover.jpg",
     link: "#"
   },
   {
-    id: 26,
+    id: 29,
     title: "Themed Meeting",
     date: "October 2023",
     image: "/flyers/friendship.jpg",
     link: "https://www.instagram.com/p/CyC2nP1tqni/?utm_source=ig_web_copy_link"
   },
   {
-    id: 27,
+    id: 30,
     title: "Themed Meeting",
     date: "July 2024",
     image: "/flyers/devsTMOD.jpg",
     link: "https://www.instagram.com/p/C8_oGCcP0kw/?utm_source=ig_web_copy_link"
   },
   {
-    id: 28,
+    id: 31,
     title: "Division Conference - J&F",
     date: "January 2025",
     image: "/flyers/JFteaser.png",
     link: "https://www.instagram.com/p/DFOu2X7Mejv/?utm_source=ig_web_copy_link"
   },
   {
-    id: 29,
+    id: 32,
     title: "Division Conference - J&F",
     date: "January 2025",
     image: "/flyers/JFmain.jpg",
     link: "https://www.instagram.com/p/DGKbo4ovWF_/?utm_source=ig_web_copy_link"
   },
   {
-    id: 30,
+    id: 33,
     title: "Division Conference - J&F",
     date: "January 2025",
     image: "/flyers/JFregsOpen.png",
     link: "https://www.instagram.com/p/DGhVkkvvMj8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 31,
+    id: 34,
     title: "Division Conference - J&F",
     date: "January 2025",
     image: "/flyers/JFregs.png",
     link: "https://www.instagram.com/p/DHVH5dvPhKh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 32,
+    id: 35,
     title: "Division Conference - J&F",
     date: "January 2025",
     image: "/flyers/JFregsClose.png",
     link: "https://www.instagram.com/p/DHnaJOZvUGv/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 33,
+    id: 36,
     title: "Division Conference - J&F",
     date: "January 2025",
     image: "/flyers/JFvolunteers.png",
     link: "#"
   },
   {
-    id: 34,
+    id: 37,
     title: "Division Conference - J&H",
     date: "November 2024",
     image: "/flyers/JHmain.jpg",
     link: "https://www.instagram.com/p/DCTXeG_sRFS/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 35,
+    id: 38,
     title: "Division Conference - J&H",
     date: "November 2024",
     image: "/flyers/JHthankyouDD.jpg",
     link: "https://www.instagram.com/p/DDMD2Y0P2mx/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 36,
+    id: 39,
     title: "Division Conference - J&H",
     date: "November 2024",
     image: "/flyers/JHthankyouinvitees.jpg",
     link: "https://www.instagram.com/p/DDLukxGvKGA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 37,
+    id: 40,
     title: "Division Conference - J&H",
     date: "November 2024",
     image: "/flyers/JH2days.png",
     link: "https://www.instagram.com/p/DC5-taHPf9I/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 34,
-    title: "Division Conference - J&H",
-    date: "November 2024",
-    image: "/flyers/JHteam.jpg",
-    link: "#"
-  },
-  {
-    id: 34,
-    title: "Division Conference - J&H",
-    date: "November 2024",
-    image: "/flyers/JHmain.jpg",
-    link: "#"
-  },
-  {
-    id: 34,
-    title: "Division Conference - J&H",
-    date: "November 2024",
-    image: "/flyers/JHmain.jpg",
-    link: "#"
-  },
+    id: 41,
+    title: "Aurudu Celebrations",
+    date: "April 2025",
+    image: "/flyers/aprilNewYear.jpg",
+    link: "https://www.instagram.com/p/DIa0lLzBcOw/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  }
 ]
 
 export default function FlyersPage() {

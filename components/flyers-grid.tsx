@@ -8,25 +8,86 @@ const flyers = [
   {
     id: 1,
     title: "Central Centennial",
-    date: "2024",
+    date: "December 2024",
     image: "/flyers/centennialMain.jpg",
-    link: "https://instagram.com/p/..."
+    link: "https://www.instagram.com/p/DDrd-YDvxXD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
-
   {
     id: 2,
-    title: "Halloween 2023",
-    date: "2024",
-    image: "/flyers/halloween.jpg",
-    link: "https://instagram.com/p/..."
+    title: "Central Centennial",
+    date: "December 2024",
+    image: "/flyers/centennial2days.jpg",
+    link: "https://www.instagram.com/p/DEE59zHv1ji/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
-
   {
     id: 3,
-    title: "Friendship Themed Meeting",
-    date: "2023",
-    image: "/flyers/friendship.jpg",
-    link: "https://instagram.com/p/..."
+    title: "Central Centennial",
+    date: "December 2024",
+    image: "/flyers/centennialTomorrow.jpg",
+    link: "https://www.instagram.com/p/DEHOkRIPlUI/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 4,
+    title: "Central Centennial",
+    date: "December 2024",
+    image: "/flyers/centennialCountdown1.png",
+    link: "https://www.instagram.com/p/DDlhihTPjy_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 5,
+    title: "Central Centennial",
+    date: "December 2024",
+    image: "/flyers/centennialCountdown2.png",
+    link: "https://www.instagram.com/p/DDoOBS0t4bv/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 6,
+    title: "Themed Meeting",
+    date: "January 2025",
+    image: "/flyers/laksTMOD.png",
+    link: "https://www.instagram.com/p/DEm6YwAv6BM/?utm_source=ig_web_copy_link"
+  },
+  {
+    id: 7,
+    title: "Promotional Flyer",
+    date: "January 2025",
+    image: "/flyers/CLTCpromo.jpg",
+    link: "https://www.instagram.com/p/DFX49fGPwmw/?utm_source=ig_web_copy_link"
+  },
+  {
+    id: 8,
+    title: "New Year Flyer",
+    date: "January 2025",
+    image: "/flyers/clubNewYear.jpg",
+    link: "https://www.instagram.com/p/DERi5dBv6b9/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+  },
+  {
+    id: 9,
+    title: "New Year Flyer",
+    date: "January 2025",
+    image: "/flyers/divisionNewYear.png",
+    link: "https://www.instagram.com/p/DEQX2oaBpbl/?utm_source=ig_web_copy_link"
+  },
+  {
+    id: 10,
+    title: "Newsletter Announcement",
+    date: "April 2025",
+    image: "/flyers/emergeFlyer1.jpg",
+    link: "https://www.instagram.com/p/DH-87rHhtGr/?utm_source=ig_web_copy_link"
+  },
+  {
+    id: 11,
+    title: "Newsletter Announcement",
+    date: "April 2025",
+    image: "/flyers/emergeFlyer2.jpg",
+    link: "https://www.instagram.com/p/DH-8478hN0x/?utm_source=ig_web_copy_link"
+  },
+  {
+    id: 12,
+    title: "Halloween 2023",
+    date: "November 2023",
+    image: "/flyers/halloween.jpg",
+    link: "#"
   },
   // Add more flyers here
 ]
