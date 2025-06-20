@@ -246,7 +246,7 @@ export default function Home() {
         >
           <div className="relative h-full w-full">
             <Image
-              src="/mainPortrait.jpg?height=1080&width=1920"
+              src="/mainPortrait2.jpg?height=1080&width=1920"
               alt="Dulain portrait"
               fill
               className="object-cover object-[80%] md:object-center"
