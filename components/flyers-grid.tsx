@@ -93,9 +93,9 @@ const flyers = [
 ]
 
 export default function FlyersGrid() {
-  const scrollRef = useRef(null)
+  const scrollRef = useRef<HTMLDivElement | null>(null)
 
-  const scroll = (direction) => {
+  const scroll = (direction: 'left' | 'right') => {
     const container = scrollRef.current
     if (!container) return
     const scrollAmount = 300
@@ -106,7 +106,7 @@ export default function FlyersGrid() {
   }
 
   return (
-    <section className="py-24 px-4 md:px-6">
+    <section className="py-12 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -121,7 +121,8 @@ export default function FlyersGrid() {
         <div className="relative">
           <div
             ref={scrollRef}
-            className="flex space-x-8 overflow-x-auto no-scrollbar scroll-smooth touch-pan-x"
+            className="flex space-x-8 overflow-x-auto no-scrollbar scrollbar-none scroll-smooth touch-pan-x"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
 
             {flyers.map((flyer, index) => (

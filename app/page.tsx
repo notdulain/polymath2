@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState, useEffect } from "react"
+import { useRef, useState, useEffect, RefObject } from "react"
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils"
 import PolymathBar from "@/components/polymath-bar"
 import FlyersGrid from "@/components/flyers-grid"
 import VideosGrid from "@/components/videos-grid"
+import ProjectsGrid from "@/components/projects-grid"
 import ToastmastersSection from "@/components/toastmasters-section"
 import BeyondDesign from "@/components/beyond-design"
 import Link from "next/link"
@@ -23,11 +24,11 @@ export default function Home() {
   const [lastScrollY, setLastScrollY] = useState(0)
   const [showNavbar, setShowNavbar] = useState(true)
 
-  const heroRef = useRef(null)
-  const aboutRef = useRef(null)
-  const workRef = useRef(null)
-  const skillsRef = useRef(null)
-  const contactRef = useRef(null)
+  const heroRef = useRef<HTMLElement | null>(null)
+  const aboutRef = useRef<HTMLElement | null>(null)
+  const workRef = useRef<HTMLElement | null>(null)
+  const skillsRef = useRef<HTMLElement | null>(null)
+  const contactRef = useRef<HTMLElement | null>(null)
 
   const { scrollY } = useScroll()
 
@@ -118,7 +119,7 @@ export default function Home() {
 
   const skills = ["React", "Tailwind", "Video Editing", "Graphic Design", "Public Speaking", "Violin"]
 
-  const scrollToSection = (ref) => {
+  const scrollToSection = (ref: RefObject<HTMLElement | null>) => {
     ref.current?.scrollIntoView({ behavior: "smooth" })
     setIsMenuOpen(false)
   }
@@ -356,6 +357,9 @@ export default function Home() {
 
       {/* Videos Section */}
       <VideosGrid />
+
+      {/* Projects Section */}
+      <ProjectsGrid />
 
       {/* Toastmasters Section */}
       <ToastmastersSection />

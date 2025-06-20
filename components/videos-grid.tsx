@@ -99,7 +99,7 @@ function getYoutubeEmbedUrl(url: string) {
 }
 
 export default function VideosGrid() {
-  const scrollRef = useRef<HTMLDivElement>(null)
+  const scrollRef = useRef<HTMLDivElement | null>(null)
   
   const scroll = (direction: 'left' | 'right') => {
     const container = scrollRef.current
@@ -112,7 +112,7 @@ export default function VideosGrid() {
   }
 
   return (
-    <section className="py-24 px-4 md:px-6 bg-zinc-50">
+    <section className="py-12 px-4 md:px-6 bg-zinc-50">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -127,7 +127,8 @@ export default function VideosGrid() {
         <div className="relative">
           <div
             ref={scrollRef}
-            className="flex space-x-8 overflow-x-auto no-scrollbar scroll-smooth touch-pan-x"
+            className="flex space-x-8 overflow-x-auto no-scrollbar scrollbar-none scroll-smooth touch-pan-x"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {videos.map((video, index) => (
               <motion.div
