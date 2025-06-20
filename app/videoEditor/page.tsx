@@ -8,35 +8,50 @@ import { Play, ChevronLeft } from "lucide-react"
 import GrainEffect from "@/components/grain-effect"
 import { link } from "fs"
 
-const videoProjects = [
-  {
-    id: 1,
-    title: "Urban Exploration",
-    description: "A cinematic journey through city landscapes",
-    thumbnail: "/flyers/centennialMain.jpg?height=800&width=600",
-    category: "DOCUMENTARY",
-    videoUrl: "/videos/promo.mp4",
-    link: "https://instagram.com/p/Cxk1v0rJ3gG",
-  },
-  {
-    id: 2,
-    title: "Product Launch",
-    description: "Promotional video for tech product release",
-    thumbnail: "/placeholder.svg?height=800&width=600",
-    category: "COMMERCIAL",
-    videoUrl: "#",
-    link: "https://instagram.com/p/Cxk1v0rJ3gG",
-  },
-  {
-    id: 3,
-    title: "Dance Performance",
-    description: "Contemporary dance captured in slow motion",
-    thumbnail: "/placeholder.svg?height=800&width=600",
-    category: "PERFORMANCE",
-    videoUrl: "#",
-    link: "https://instagram.com/p/Cxk1v0rJ3gG",
-  },
-  {
+type VideoProject = {
+  id: number;
+  title: string;
+  description: string;
+  thumbnail: string;
+  category: string;
+  youtubeID: string;
+  videoUrl: string;
+  link: string;
+};
+
+const videoProjects: VideoProject[] = [
+
+    {
+        id: 1,
+        title: "Milestone Video",
+        description: "The story of building a legacy: Central Link",
+        thumbnail: "/thumbnails/milestone.JPG",
+        category: "Storyteller",
+        youtubeID: "De3DhlN8yik",
+        videoUrl: "https://youtu.be/De3DhlN8yik",
+        link: "https://www.instagram.com/reel/DESJCVjABom/",
+    },
+    {
+        id: 2,
+        title: "Year Recap Video",
+        description: "The video that unfolds the TM year 2023/24 of Central Link",
+        thumbnail: "/thumbnails/2023recap.JPG",
+        category: "Nostalgia",
+        youtubeID: "r41LcnUBgsM",
+        videoUrl: "https://youtu.be/r41LcnUBgsM",
+        link: "https://www.instagram.com/reel/C8yq-SRyZZb/",
+    },
+    {
+        id: 3,
+        title: "Ovation 2024",
+        description: "Reliving the Ovation memories",
+        thumbnail: "/thumbnails/ovation.JPG",
+        category: "Storyteller",
+        youtubeID: "sZ-kkKJz2Yc",
+        videoUrl: "https://youtu.be/sZ-kkKJz2Yc",
+        link: "https://www.instagram.com/reel/C7jQxZRvwyM/",
+    },
+    {
     id: 4,
     title: "Kokis 2024",
     description: "Reliving the unforgettable day where Central Link celebrated Aurudu",
@@ -62,15 +77,14 @@ const videoProjects = [
     description: "Visual interpretation of an indie artist's single",
     thumbnail: "/placeholder.svg?height=800&width=600",
     category: "MUSIC",
+    youtubeID: "",
     videoUrl: "#",
     link: "https://instagram.com/p/Cxk1v0rJ3gG",
   },
 ]
 
 export default function VideoPortfolioPage() {
-  const [selectedVideo, setSelectedVideo] = useState(null)
-  const [videoDimensions, setVideoDimensions] = useState({ width: 1280, height: 720 })
-  const videoRef = useRef(null)
+  const [selectedVideo, setSelectedVideo] = useState<VideoProject | null>(null)
 
   return (
     <div className="min-h-screen bg-[#FAF9F6] text-[#2C2C2C] overflow-hidden">
@@ -173,40 +187,39 @@ export default function VideoPortfolioPage() {
           <motion.div
             className="relative bg-black rounded-lg overflow-hidden"
             style={{
-              width: `${videoDimensions.width}px`,
-              height: `${(videoDimensions.height / videoDimensions.width) * videoDimensions.width}px`,
-              maxWidth: '90vw',
-              maxHeight: '80vh',
+              width: '90vw',
+              height: '80vh',
+              maxWidth: '1280px',
+              maxHeight: '720px',
             }}
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             onClick={(e) => e.stopPropagation()}
           >
-            <video
-              ref={videoRef}
-              src={selectedVideo.videoUrl}
-              controls
-              autoPlay
-              className="w-full h-full object-contain bg-black rounded-lg"
-              onLoadedMetadata={() => {
-                if (videoRef.current) {
-                  setVideoDimensions({
-                    width: videoRef.current.videoWidth,
-                    height: videoRef.current.videoHeight,
-                  })
-                }
-              }}
-            />  
+            {selectedVideo.videoUrl.startsWith('https://youtu') ? (
+              <iframe
+                width="100%"
+                height="100%"
+                src={selectedVideo.videoUrl.replace('youtu.be/', 'www.youtube.com/embed/').replace('watch?v=', 'embed/') + '?autoplay=1'}
+                title={selectedVideo.title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full object-contain bg-black rounded-lg"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-white text-lg">No video available</div>
+            )}
 
-            {/* Watch on Instagram Button */}
+            {/* View on Instagram Button */}
             <a
-              href="https://www.instagram.com/yourprofile" // Replace with actual link if needed
+              href={selectedVideo.link}
               target="_blank"
               rel="noopener noreferrer"
               className="absolute top-4 left-4 bg-white/10 text-white border border-white/30 hover:bg-white/20 px-4 py-2 rounded-md text-base font-medium backdrop-blur-sm transition-all"
             >
-              Watch on Instagram
+              View on Instagram
             </a>
 
               {/* Close button */}
