@@ -77,7 +77,7 @@ const videoProjects: VideoProject[] = [
     thumbnail: "/thumbnails/promo.JPG",
     category: "Quick edit",
     youtubeID: "eFpZanIqv68",
-    videoUrl: "https://youtube.com/shorts/eFpZanIqv68?feature=share",
+    videoUrl: "https://youtube.com/shorts/eFpZanIqv68?feature=shared",
     link: "#",
   },
   {
@@ -90,7 +90,29 @@ const videoProjects: VideoProject[] = [
     videoUrl: "https://youtu.be/yP7xagK5BYc",
     link: "https://www.instagram.com/reel/DB1JPDkNU_2/",
   },
+  {
+    id: 8,
+    title: "RTC X CLTC",
+    description: "The recap video I made for the joint meeting we had with Rajagiriya Toastmasters club",
+    thumbnail: "/thumbnails/rtc.JPG",
+    category: "Recap",
+    youtubeID: "h8U39hxPh4o",
+    videoUrl: "https://youtu.be/h8U39hxPh4o",
+    link: "https://www.instagram.com/reel/C5istt0v2KT/",
+  },
 ]
+
+function getYoutubeEmbedUrl(url: string) {
+  let videoId = '';
+  if (url.includes('youtu.be/')) {
+    videoId = url.split('youtu.be/')[1].split(/[?&]/)[0];
+  } else if (url.includes('watch?v=')) {
+    videoId = url.split('watch?v=')[1].split(/[?&]/)[0];
+  } else if (url.includes('/shorts/')) {
+    videoId = url.split('/shorts/')[1].split(/[?&]/)[0];
+  }
+  return videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=1` : '';
+}
 
 export default function VideoPortfolioPage() {
   const [selectedVideo, setSelectedVideo] = useState<VideoProject | null>(null)
@@ -210,7 +232,7 @@ export default function VideoPortfolioPage() {
               <iframe
                 width="100%"
                 height="100%"
-                src={selectedVideo.videoUrl.replace('youtu.be/', 'www.youtube.com/embed/').replace('watch?v=', 'embed/') + '?autoplay=1'}
+                src={getYoutubeEmbedUrl(selectedVideo.videoUrl)}
                 title={selectedVideo.title}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
