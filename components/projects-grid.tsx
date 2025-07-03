@@ -170,7 +170,7 @@ export default function ProjectsGrid() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="relative bg-zinc-900 text-white rounded-2xl shadow-2xl w-[384px] h-[576px] md:w-full md:h-full md:max-w-[90vw] lg:max-w-[1300px] md:h-[90vh] md:max-h-[700px] flex flex-col md:flex-row overflow-auto md:overflow-hidden p-3 md:p-8"
+            className="relative bg-zinc-900 text-white rounded-2xl shadow-2xl w-[384px] h-[576px] md:w-full md:h-full md:max-w-[90vw] lg:max-w-[1300px] md:h-[90vh] md:max-h-[700px] flex flex-col md:flex-row md:overflow-hidden p-3 md:p-8"
             onClick={e => e.stopPropagation()}
           >
             {/* Video (16:9) on the left, content on the right */}
@@ -194,11 +194,11 @@ export default function ProjectsGrid() {
               </div>
             </div>
             {/* Details on the right */}
-            <div className="flex-1 w-full px-1 md:px-10 pt-2 md:pt-12 pb-1 md:pb-8 flex flex-col justify-between min-w-0 md:min-w-[350px] ml-0 md:ml-8">
-              <div>
+            <div className="flex-1 w-full px-1 md:px-10 pt-2 md:pt-12 pb-1 md:pb-8 flex flex-col justify-between min-w-0 md:min-w-[350px]">
+              <div className="pl-3 md:pl-10">
                 <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4">{selectedProject.title}</h2>
                 <p className="text-zinc-300 mb-4 md:mb-6 text-base md:text-lg">{selectedProject.details}</p>
-                {/* Tech stack pills (slightly larger on PC than before) */}
+                {/* Tech stack pills */}
                 <div className="flex flex-wrap gap-2 md:gap-3 lg:gap-2 mb-4 md:mb-8">
                   {selectedProject.tech && selectedProject.tech.map((tech, idx) => (
                     <span key={idx} className="inline-block px-4 py-1 md:px-6 md:py-2 lg:px-4 lg:py-1.5 rounded-full bg-zinc-800 text-xs md:text-base lg:text-sm font-semibold tracking-wide border border-zinc-700">
