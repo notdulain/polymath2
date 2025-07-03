@@ -170,12 +170,12 @@ export default function ProjectsGrid() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="relative bg-zinc-900 text-white rounded-2xl shadow-2xl w-[384px] h-[576px] md:w-full md:h-full md:max-w-[90vw] lg:max-w-[1300px] md:h-[90vh] md:max-h-[700px] flex flex-col md:flex-row md:overflow-hidden p-3 md:p-8"
+            className="relative bg-zinc-900/80 text-white rounded-2xl shadow-2xl w-[384px] h-[576px] md:w-full md:h-full md:max-w-[90vw] lg:max-w-[1300px] md:h-[90vh] md:max-h-[700px] flex flex-col md:flex-row md:overflow-hidden p-3 md:p-8 backdrop-blur-md border border-zinc-700"
             onClick={e => e.stopPropagation()}
           >
             {/* Video (16:9) on the left, content on the right */}
-            <div className="w-full bg-zinc-900 flex flex-col justify-start items-center h-auto md:w-[55%] md:min-w-[480px] md:justify-center md:p-8 p-1 pt-4 md:pt-8">
-              <div className="w-full aspect-[16/9] max-w-[320px] md:max-w-2xl rounded-xl overflow-hidden shadow-lg flex items-center justify-center bg-zinc-900">
+            <div className="w-full flex flex-col justify-start items-center h-auto md:w-[55%] md:min-w-[480px] md:justify-center md:p-8 p-1 pt-4 md:pt-8">
+              <div className="w-full aspect-[16/9] max-w-[320px] md:max-w-2xl rounded-xl overflow-hidden shadow-lg flex items-center justify-center bg-zinc-900/80 backdrop-blur-md">
                 {selectedProject.video ? (
                   <video
                     src={selectedProject.video}
