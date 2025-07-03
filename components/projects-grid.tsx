@@ -6,34 +6,42 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 const projects = [
   {
     id: 1,
-    title: "Portfolio Redesign",
-    description: "A minimalist approach to showcasing creative work",
-    image: "/placeholder.svg?height=400&width=700",
-    category: "DESIGN",
+    title: "TMPL Website",
+    description: "Live score entry and viewer site for a cricket tournament.",
+    image: "/tmpl.png",
+    category: "Web App",
     link: "#",
   },
   {
     id: 2,
-    title: "E-Commerce Platform",
-    description: "Modern shopping experience with seamless checkout",
-    image: "/placeholder.svg?height=400&width=700",
-    category: "DEVELOPMENT",
+    title: "Gymsync",
+    description: "Gym management system for tracking attendance, workouts, and equipment.",
+    image: "/gymsync.png",
+    category: "Full Stack",
     link: "#",
   },
   {
     id: 3,
-    title: "Travel Journal App",
-    description: "Document adventures with an intuitive mobile interface",
-    image: "/placeholder.svg?height=400&width=700",
-    category: "MOBILE",
+    title: "Rawriser",
+    description: "Batch convert RAW image folders into JPEGs instantly.",
+    image: "/rawriser.png",
+    category: "Utility Tool",
     link: "#",
   },
   {
     id: 4,
-    title: "Music Visualization",
-    description: "Interactive audio experience with custom animations",
-    image: "/placeholder.svg?height=400&width=700",
-    category: "CREATIVE",
+    title: "Hextractor",
+    description: "Pick any screen color and get its hex-code instantly.",
+    image: "/hextractor.png",
+    category: "Dev Tool",
+    link: "#",
+  },
+  {
+    id: 5,
+    title: "Textforge",
+    description: "Format text (bold, italic etc.) for social platforms.",
+    image: "/textforge.png",
+    category: "Productivity",
     link: "#",
   },
 ]
@@ -77,7 +85,7 @@ export default function ProjectsGrid() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group relative aspect-[16/9] rounded-lg overflow-hidden flex-shrink-0 w-[480px] shadow-lg shadow-zinc-300/30"
+                className="group relative aspect-[8/5] rounded-lg overflow-hidden flex-shrink-0 w-[480px] shadow-lg shadow-zinc-300/30"
               >
                 <img
                   src={project.image}

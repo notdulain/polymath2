@@ -15,8 +15,6 @@ import PolymathBar from "@/components/polymath-bar"
 import FlyersGrid from "@/components/flyers-grid"
 import VideosGrid from "@/components/videos-grid"
 import ProjectsGrid from "@/components/projects-grid"
-import ToastmastersSection from "@/components/toastmasters-section"
-import BeyondDesign from "@/components/beyond-design"
 import Link from "next/link"
 
 export default function Home() {
@@ -26,7 +24,7 @@ export default function Home() {
 
   const heroRef = useRef<HTMLElement | null>(null)
   const aboutRef = useRef<HTMLElement | null>(null)
-  const workRef = useRef<HTMLElement | null>(null)
+  const workRef = useRef<HTMLDivElement | null>(null)
   const skillsRef = useRef<HTMLElement | null>(null)
   const contactRef = useRef<HTMLElement | null>(null)
 
@@ -469,23 +467,6 @@ export default function Home() {
                   },
                 }}
               >
-                Beyond the academics, I've found my rhythm in Toastmasters — currently serving as 
-                the VPPR of Central Link Toastmasters Club and the Division PR Manager of Division J, District 82. 
-                My work revolves around design, video, code, and storytelling — all of which I use to bring ideas to life, 
-                run campaigns, and create impact wherever I can.
-              </motion.p>
-
-              <motion.p
-                className="text-lg leading-relaxed text-[#2C2C2C]/80"
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: { duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] },
-                  },
-                }}
-              >
                I'm also someone who wears many hats — editor, reader, violinist, guitarist, researcher, coder — 
                constantly jumping between the creative and the technical, and loving every bit of it.
               </motion.p>
@@ -493,208 +474,6 @@ export default function Home() {
             </motion.div>
           </motion.div>
         </section>
-
-        {/* Toastmasters Section */}
-        <ToastmastersSection />
-
-        {/* Beyond Design Section */}
-        <BeyondDesign />
-
-        {/* Gallery Section */}
-        <section className="relative py-24 md:py-32 overflow-hidden">
-          <div className="px-4 md:px-6 max-w-7xl mx-auto mb-12">
-            <motion.p
-              className="text-sm uppercase tracking-widest text-[#2C2C2C]/60 font-light"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              viewport={{ once: true }}
-            >
-              02 — Gallery
-            </motion.p>
-
-            <motion.h2
-              className="text-4xl md:text-5xl font-light font-display tracking-tight mt-2"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              viewport={{ once: true }}
-            >
-              Behind the scenes
-            </motion.h2>
-          </div>
-
-          <HorizontalScroll images={galleryImages} />
-        </section>
-
-        {/* Section Divider */}
-        <div className="relative h-24">
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-b from-[#F8F7F4]/50 to-transparent"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.5 }}
-          ></motion.div>
-        </div>
-
-        {/* Selected Work Section */}
-        <div ref={workRef} className="relative py-24 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
-          <motion.div className="mb-16 space-y-2">
-            <motion.p
-              className="text-sm uppercase tracking-widest text-[#2C2C2C]/60 font-light"
-              initial={{ opacity: 0, y: 20 }}
-              animate={workInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            >
-              03 — Portfolio
-            </motion.p>
-
-            <motion.h2
-              className="text-4xl md:text-5xl font-light font-display tracking-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={workInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            >
-              Selected Work
-            </motion.h2>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16"
-            initial="hidden"
-            animate={workInView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
-            }}
-          >
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                className="group relative rounded-2xl overflow-hidden shadow-xl"
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
-                  },
-                }}
-                whileHover={{
-                  y: -10,
-                  transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-                }}
-              >
-                <div className="aspect-[4/3] relative">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#2C2C2C]/80 via-[#2C2C2C]/30 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
-
-                  <div className="absolute top-6 left-6">
-                    <span className="text-xs tracking-widest text-white/80 font-light">{project.category}</span>
-                  </div>
-
-                  <div className="absolute inset-0 flex flex-col justify-end p-6 pointer-events-none group-hover:pointer-events-auto transition-all duration-300">
-                    <h3 className="text-2xl font-medium text-white font-display">{project.title}</h3>
-                    <p className="text-white/80 mt-2 max-w-xs">{project.description}</p>
-
-                    <div className="overflow-hidden h-0 group-hover:h-10 transition-all duration-300 mt-4">
-                      <Link
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block px-4 py-2 rounded-full border border-zinc-400 text-zinc-400 hover:bg-zinc-400 hover:text-zinc-900 text-sm transition-colors duration-200"
-                      >
-                        View on GitHub
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Section Divider */}
-        <div className="relative h-24">
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-b from-transparent to-[#F8F7F4]/50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.5 }}
-          ></motion.div>
-        </div>
-
-        {/* Skills Section */}
-        <section ref={skillsRef} className="relative py-24 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
-          <motion.div className="mb-16 space-y-2">
-            <motion.p
-              className="text-sm uppercase tracking-widest text-[#2C2C2C]/60 font-light"
-              initial={{ opacity: 0, y: 20 }}
-              animate={skillsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            >
-              04 — Expertise
-            </motion.p>
-
-            <motion.h2
-              className="text-4xl md:text-5xl font-light font-display tracking-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={skillsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            >
-              Skills
-            </motion.h2>
-          </motion.div>
-
-          <motion.div
-            className="flex flex-wrap gap-4"
-            initial="hidden"
-            animate={skillsInView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
-            }}
-          >
-            {skills.map((skill, index) => (
-              <motion.div
-                key={index}
-                className="px-6 py-3 rounded-full border border-[#2C2C2C]/10 text-[#2C2C2C]/80 shadow-md backdrop-blur-sm bg-white/30"
-                variants={{
-                  hidden: { opacity: 0, y: 20, scale: 0.95 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-                  },
-                }}
-                whileHover={{
-                  y: -5,
-                  backgroundColor: "#BCC6B6",
-                  color: "#2C2C2C",
-                  transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
-                }}
-              >
-                {skill}
-              </motion.div>
-            ))}
-          </motion.div>
-        </section>
-
-        {/* Section Divider */}
-        <div className="relative h-24">
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-b from-[#F8F7F4]/50 to-transparent"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.5 }}
-          ></motion.div>
-        </div>
 
         {/* Contact Section */}
         <section ref={contactRef} className="relative py-24 md:py-32 px-4 md:px-6 max-w-3xl mx-auto">
