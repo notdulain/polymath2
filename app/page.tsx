@@ -125,7 +125,17 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] text-[#2C2C2C] overflow-hidden">
+    <div className="min-h-screen relative text-[#2C2C2C] overflow-hidden">
+      {/* Patterned Background */}
+      <div
+        className="absolute inset-0 w-full h-full z-0"
+        style={{
+          backgroundColor: "#f7f7f7",
+          backgroundImage: 'url("https://www.transparenttextures.com/patterns/asfalt-dark.png")',
+        }}
+        aria-hidden="true"
+      />
+
       {/* Grain Effect */}
       <GrainEffect />
 
@@ -349,467 +359,471 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Polymath Bar */}
-      <PolymathBar />
+      {/* Main Content (sections) */}
+      <div className="relative z-10">
+        {/* Polymath Bar */}
+        <PolymathBar />
 
-      {/* Flyers Section */}
-      <FlyersGrid />
+        {/* Projects Section */}
+        <ProjectsGrid />
 
-      {/* Videos Section */}
-      <VideosGrid />
+        {/* Flyers Section */}
+        <FlyersGrid />
 
-      {/* Projects Section */}
-      <ProjectsGrid />
+        {/* Videos Section */}
+        <VideosGrid />
 
-      {/* Toastmasters Section */}
-      <ToastmastersSection />
 
-      {/* Beyond Design Section */}
-      <BeyondDesign />
-
-      {/* Section Divider */}
-      <div className="relative h-24">
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-b from-transparent to-[#F8F7F4]/50"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-        ></motion.div>
-      </div>
-
-      {/* About Section */}
-      <section ref={aboutRef} className="relative py-24 md:py-32 px-4 md:px-6 max-w-7xl mx-auto overflow-hidden">
-        <motion.div
-          className="grid md:grid-cols-2 gap-12 md:gap-24 items-center"
-          initial="hidden"
-          animate={aboutInView ? "visible" : "hidden"}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
-          }}
-        >
+        {/* Section Divider */}
+        <div className="relative h-24">
           <motion.div
-            className="aspect-[4/5] relative rounded-2xl overflow-hidden bg-[#D4CBC4]/20 shadow-2xl"
-            style={{ y: aboutImageY }}
+            className="absolute inset-0 bg-gradient-to-b from-transparent to-[#F8F7F4]/50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
+          ></motion.div>
+        </div>
+
+        {/* About Section */}
+        <section ref={aboutRef} className="relative py-24 md:py-32 px-4 md:px-6 max-w-7xl mx-auto overflow-hidden">
+          <motion.div
+            className="grid md:grid-cols-2 gap-12 md:gap-24 items-center"
+            initial="hidden"
+            animate={aboutInView ? "visible" : "hidden"}
             variants={{
-              hidden: { opacity: 0, y: 40 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
-              },
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
             }}
           >
-            <Image src="/actualDulain.jpg"alt="Dulain portrait" fill className="object-cover" style={{ objectPosition: "50% 30%" }} />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#2C2C2C]/20 to-transparent"></div>
-          </motion.div>
-
-          <motion.div className="space-y-8" style={{ y: aboutTextY }}>
-            <motion.p
-              className="text-sm uppercase tracking-widest text-[#2C2C2C]/60 font-light"
+            <motion.div
+              className="aspect-[4/5] relative rounded-2xl overflow-hidden bg-[#D4CBC4]/20 shadow-2xl"
+              style={{ y: aboutImageY }}
               variants={{
-                hidden: { opacity: 0, y: 20 },
+                hidden: { opacity: 0, y: 40 },
                 visible: {
                   opacity: 1,
                   y: 0,
-                  transition: { duration: 1, ease: [0.22, 1, 0.36, 1] },
+                  transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
                 },
               }}
             >
-              01 — About
-            </motion.p>
+              <Image src="/actualDulain.jpg"alt="Dulain portrait" fill className="object-cover" style={{ objectPosition: "50% 30%" }} />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#2C2C2C]/20 to-transparent"></div>
+            </motion.div>
 
-            <section ref={aboutRef} className="relative">
-              <motion.h2
-                className="text-4xl md:text-5xl font-light font-display tracking-tight"
+            <motion.div className="space-y-8" style={{ y: aboutTextY }}>
+              <motion.p
+                className="text-sm uppercase tracking-widest text-[#2C2C2C]/60 font-light"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: {
                     opacity: 1,
                     y: 0,
-                    transition: { duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] },
+                    transition: { duration: 1, ease: [0.22, 1, 0.36, 1] },
                   },
                 }}
               >
-                Seriously, who am I??
-              </motion.h2>
-            </section>  
+                01 — About
+              </motion.p>
 
-            <motion.p
-              className="text-lg leading-relaxed text-[#2C2C2C]/80"
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] },
-                },
-              }}
-            >
-              Long story short: I'm Dulain Gunawardhana — born and raised in the scenic hills of Hanthana, Kandy. 
-              I studied at Dharmaraja College from grade 1 all the way through A/Ls, 
-              and now Im a second-year undergraduate at SLIIT, working my way through a BSc in Computer Science.
-            </motion.p>
+              <section ref={aboutRef} className="relative">
+                <motion.h2
+                  className="text-4xl md:text-5xl font-light font-display tracking-tight"
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] },
+                    },
+                  }}
+                >
+                  Seriously, who am I??
+                </motion.h2>
+              </section>  
 
-            <motion.p
-              className="text-lg leading-relaxed text-[#2C2C2C]/80"
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] },
-                },
-              }}
-            >
-              Beyond the academics, I've found my rhythm in Toastmasters — currently serving as 
-              the VPPR of Central Link Toastmasters Club and the Division PR Manager of Division J, District 82. 
-              My work revolves around design, video, code, and storytelling — all of which I use to bring ideas to life, 
-              run campaigns, and create impact wherever I can.
-            </motion.p>
+              <motion.p
+                className="text-lg leading-relaxed text-[#2C2C2C]/80"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] },
+                  },
+                }}
+              >
+                Long story short: I'm Dulain Gunawardhana — born and raised in the scenic hills of Hanthana, Kandy. 
+                I studied at Dharmaraja College from grade 1 all the way through A/Ls, 
+                and now Im a second-year undergraduate at SLIIT, working my way through a BSc in Computer Science.
+              </motion.p>
 
-            <motion.p
-              className="text-lg leading-relaxed text-[#2C2C2C]/80"
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] },
-                },
-              }}
-            >
-             I'm also someone who wears many hats — editor, reader, violinist, guitarist, researcher, coder — 
-             constantly jumping between the creative and the technical, and loving every bit of it.
-            </motion.p>
+              <motion.p
+                className="text-lg leading-relaxed text-[#2C2C2C]/80"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] },
+                  },
+                }}
+              >
+                Beyond the academics, I've found my rhythm in Toastmasters — currently serving as 
+                the VPPR of Central Link Toastmasters Club and the Division PR Manager of Division J, District 82. 
+                My work revolves around design, video, code, and storytelling — all of which I use to bring ideas to life, 
+                run campaigns, and create impact wherever I can.
+              </motion.p>
 
+              <motion.p
+                className="text-lg leading-relaxed text-[#2C2C2C]/80"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] },
+                  },
+                }}
+              >
+               I'm also someone who wears many hats — editor, reader, violinist, guitarist, researcher, coder — 
+               constantly jumping between the creative and the technical, and loving every bit of it.
+              </motion.p>
+
+            </motion.div>
           </motion.div>
-        </motion.div>
-      </section>
+        </section>
 
-      {/* Gallery Section */}
-      <section className="relative py-24 md:py-32 overflow-hidden">
-        <div className="px-4 md:px-6 max-w-7xl mx-auto mb-12">
-          <motion.p
-            className="text-sm uppercase tracking-widest text-[#2C2C2C]/60 font-light"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            viewport={{ once: true }}
-          >
-            02 — Gallery
-          </motion.p>
+        {/* Toastmasters Section */}
+        <ToastmastersSection />
 
-          <motion.h2
-            className="text-4xl md:text-5xl font-light font-display tracking-tight mt-2"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            viewport={{ once: true }}
-          >
-            Behind the scenes
-          </motion.h2>
+        {/* Beyond Design Section */}
+        <BeyondDesign />
+
+        {/* Gallery Section */}
+        <section className="relative py-24 md:py-32 overflow-hidden">
+          <div className="px-4 md:px-6 max-w-7xl mx-auto mb-12">
+            <motion.p
+              className="text-sm uppercase tracking-widest text-[#2C2C2C]/60 font-light"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true }}
+            >
+              02 — Gallery
+            </motion.p>
+
+            <motion.h2
+              className="text-4xl md:text-5xl font-light font-display tracking-tight mt-2"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true }}
+            >
+              Behind the scenes
+            </motion.h2>
+          </div>
+
+          <HorizontalScroll images={galleryImages} />
+        </section>
+
+        {/* Section Divider */}
+        <div className="relative h-24">
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-b from-[#F8F7F4]/50 to-transparent"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
+          ></motion.div>
         </div>
 
-        <HorizontalScroll images={galleryImages} />
-      </section>
+        {/* Selected Work Section */}
+        <div ref={workRef} className="relative py-24 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
+          <motion.div className="mb-16 space-y-2">
+            <motion.p
+              className="text-sm uppercase tracking-widest text-[#2C2C2C]/60 font-light"
+              initial={{ opacity: 0, y: 20 }}
+              animate={workInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              03 — Portfolio
+            </motion.p>
 
-      {/* Section Divider */}
-      <div className="relative h-24">
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-b from-[#F8F7F4]/50 to-transparent"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-        ></motion.div>
-      </div>
+            <motion.h2
+              className="text-4xl md:text-5xl font-light font-display tracking-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={workInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              Selected Work
+            </motion.h2>
+          </motion.div>
 
-      {/* Selected Work Section */}
-      <div ref={workRef} className="relative py-24 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
-        <motion.div className="mb-16 space-y-2">
-          <motion.p
-            className="text-sm uppercase tracking-widest text-[#2C2C2C]/60 font-light"
-            initial={{ opacity: 0, y: 20 }}
-            animate={workInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16"
+            initial="hidden"
+            animate={workInView ? "visible" : "hidden"}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+            }}
           >
-            03 — Portfolio
-          </motion.p>
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                className="group relative rounded-2xl overflow-hidden shadow-xl"
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+                  },
+                }}
+                whileHover={{
+                  y: -10,
+                  transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+                }}
+              >
+                <div className="aspect-[4/3] relative">
+                  <Image
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2C2C2C]/80 via-[#2C2C2C]/30 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
 
-          <motion.h2
-            className="text-4xl md:text-5xl font-light font-display tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={workInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  <div className="absolute top-6 left-6">
+                    <span className="text-xs tracking-widest text-white/80 font-light">{project.category}</span>
+                  </div>
+
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 pointer-events-none group-hover:pointer-events-auto transition-all duration-300">
+                    <h3 className="text-2xl font-medium text-white font-display">{project.title}</h3>
+                    <p className="text-white/80 mt-2 max-w-xs">{project.description}</p>
+
+                    <div className="overflow-hidden h-0 group-hover:h-10 transition-all duration-300 mt-4">
+                      <Link
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-4 py-2 rounded-full border border-zinc-400 text-zinc-400 hover:bg-zinc-400 hover:text-zinc-900 text-sm transition-colors duration-200"
+                      >
+                        View on GitHub
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Section Divider */}
+        <div className="relative h-24">
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-b from-transparent to-[#F8F7F4]/50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
+          ></motion.div>
+        </div>
+
+        {/* Skills Section */}
+        <section ref={skillsRef} className="relative py-24 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
+          <motion.div className="mb-16 space-y-2">
+            <motion.p
+              className="text-sm uppercase tracking-widest text-[#2C2C2C]/60 font-light"
+              initial={{ opacity: 0, y: 20 }}
+              animate={skillsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              04 — Expertise
+            </motion.p>
+
+            <motion.h2
+              className="text-4xl md:text-5xl font-light font-display tracking-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={skillsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              Skills
+            </motion.h2>
+          </motion.div>
+
+          <motion.div
+            className="flex flex-wrap gap-4"
+            initial="hidden"
+            animate={skillsInView ? "visible" : "hidden"}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+            }}
           >
-            Selected Work
-          </motion.h2>
-        </motion.div>
+            {skills.map((skill, index) => (
+              <motion.div
+                key={index}
+                className="px-6 py-3 rounded-full border border-[#2C2C2C]/10 text-[#2C2C2C]/80 shadow-md backdrop-blur-sm bg-white/30"
+                variants={{
+                  hidden: { opacity: 0, y: 20, scale: 0.95 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+                  },
+                }}
+                whileHover={{
+                  y: -5,
+                  backgroundColor: "#BCC6B6",
+                  color: "#2C2C2C",
+                  transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
+                }}
+              >
+                {skill}
+              </motion.div>
+            ))}
+          </motion.div>
+        </section>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16"
-          initial="hidden"
-          animate={workInView ? "visible" : "hidden"}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
-          }}
-        >
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="group relative rounded-2xl overflow-hidden shadow-xl"
+        {/* Section Divider */}
+        <div className="relative h-24">
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-b from-[#F8F7F4]/50 to-transparent"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
+          ></motion.div>
+        </div>
+
+        {/* Contact Section */}
+        <section ref={contactRef} className="relative py-24 md:py-32 px-4 md:px-6 max-w-3xl mx-auto">
+          <motion.div className="mb-16 space-y-2">
+            <motion.p
+              className="text-sm uppercase tracking-widest text-[#2C2C2C]/60 font-light"
+              initial={{ opacity: 0, y: 20 }}
+              animate={contactInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              05 — Connect
+            </motion.p>
+
+            <motion.h2
+              className="text-4xl md:text-5xl font-light font-display tracking-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={contactInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              Contact
+            </motion.h2>
+          </motion.div>
+
+          <motion.div
+            className="space-y-12"
+            initial="hidden"
+            animate={contactInView ? "visible" : "hidden"}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+            }}
+          >
+            <motion.form
+              className="space-y-6"
               variants={{
-                hidden: { opacity: 0, y: 30 },
+                hidden: { opacity: 0, y: 20 },
                 visible: {
                   opacity: 1,
                   y: 0,
                   transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
                 },
               }}
-              whileHover={{
-                y: -10,
-                transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-              }}
             >
-              <div className="aspect-[4/3] relative">
-                <Image
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+              <div className="space-y-2">
+                <label htmlFor="name" className="text-lg text-[#2C2C2C]/80">
+                  Name
+                </label>
+                <Input
+                  id="name"
+                  className="bg-white/50 backdrop-blur-sm border-[#2C2C2C]/20 rounded-lg p-6 text-lg focus-visible:ring-[#BCC6B6] shadow-md"
+                  placeholder="Your name"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2C2C2C]/80 via-[#2C2C2C]/30 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
-
-                <div className="absolute top-6 left-6">
-                  <span className="text-xs tracking-widest text-white/80 font-light">{project.category}</span>
-                </div>
-
-                <div className="absolute inset-0 flex flex-col justify-end p-6 pointer-events-none group-hover:pointer-events-auto transition-all duration-300">
-                  <h3 className="text-2xl font-medium text-white font-display">{project.title}</h3>
-                  <p className="text-white/80 mt-2 max-w-xs">{project.description}</p>
-
-                  <div className="overflow-hidden h-0 group-hover:h-10 transition-all duration-300 mt-4">
-                    <Link
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block px-4 py-2 rounded-full border border-zinc-400 text-zinc-400 hover:bg-zinc-400 hover:text-zinc-900 text-sm transition-colors duration-200"
-                    >
-                      View on GitHub
-                    </Link>
-                  </div>
-                </div>
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-lg text-[#2C2C2C]/80">
+                  Email
+                </label>
+                <Input
+                  id="email"
+                  type="email"
+                  className="bg-white/50 backdrop-blur-sm border-[#2C2C2C]/20 rounded-lg p-6 text-lg focus-visible:ring-[#BCC6B6] shadow-md"
+                  placeholder="Your email"
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-lg text-[#2C2C2C]/80">
+                  Message
+                </label>
+                <Textarea
+                  id="message"
+                  className="bg-white/50 backdrop-blur-sm border-[#2C2C2C]/20 rounded-lg p-6 text-lg min-h-[150px] focus-visible:ring-[#BCC6B6] shadow-md"
+                  placeholder="Your message"
+                />
+              </div>
+              <Button className="w-full bg-[#BCC6B6] hover:bg-[#BCC6B6]/90 text-[#2C2C2C] rounded-lg py-6 text-lg relative overflow-hidden group shadow-lg">
+                <span className="relative z-10">Send Message</span>
+                <span className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></span>
+                <span className="absolute -inset-px bg-gradient-to-r from-[#BCC6B6] to-[#BCC6B6]/80 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500"></span>
+              </Button>
+            </motion.form>
 
-      {/* Section Divider */}
-      <div className="relative h-24">
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-b from-transparent to-[#F8F7F4]/50"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-        ></motion.div>
-      </div>
-
-      {/* Skills Section */}
-      <section ref={skillsRef} className="relative py-24 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
-        <motion.div className="mb-16 space-y-2">
-          <motion.p
-            className="text-sm uppercase tracking-widest text-[#2C2C2C]/60 font-light"
-            initial={{ opacity: 0, y: 20 }}
-            animate={skillsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            04 — Expertise
-          </motion.p>
-
-          <motion.h2
-            className="text-4xl md:text-5xl font-light font-display tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={skillsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            Skills
-          </motion.h2>
-        </motion.div>
-
-        <motion.div
-          className="flex flex-wrap gap-4"
-          initial="hidden"
-          animate={skillsInView ? "visible" : "hidden"}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
-          }}
-        >
-          {skills.map((skill, index) => (
             <motion.div
-              key={index}
-              className="px-6 py-3 rounded-full border border-[#2C2C2C]/10 text-[#2C2C2C]/80 shadow-md backdrop-blur-sm bg-white/30"
+              className="flex justify-center space-x-8"
               variants={{
-                hidden: { opacity: 0, y: 20, scale: 0.95 },
+                hidden: { opacity: 0, y: 20 },
                 visible: {
                   opacity: 1,
                   y: 0,
-                  scale: 1,
-                  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+                  transition: { duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] },
                 },
               }}
-              whileHover={{
-                y: -5,
-                backgroundColor: "#BCC6B6",
-                color: "#2C2C2C",
-                transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
-              }}
             >
-              {skill}
+              <motion.a
+                href="https://github.com/notdulain"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -5, scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+                className="p-3 rounded-full bg-white/50 backdrop-blur-sm shadow-md"
+              >
+                <Github className="h-6 w-6 text-[#2C2C2C]/70" />
+                <span className="sr-only">GitHub</span>
+              </motion.a>
+              <motion.a
+                href="https://www.linkedin.com/in/dulain-nethwin-gunawardhana-41b251294/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -5, scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+                className="p-3 rounded-full bg-white/50 backdrop-blur-sm shadow-md"
+              >
+                <Linkedin className="h-6 w-6 text-[#2C2C2C]/70" />
+                <span className="sr-only">LinkedIn</span>
+              </motion.a>
+              <motion.a
+                href="https://instagram.com/notdulain/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -5, scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+                className="p-3 rounded-full bg-white/50 backdrop-blur-sm shadow-md"
+              >
+                <Instagram className="h-6 w-6 text-[#2C2C2C]/70" />
+                <span className="sr-only">Instagram</span>
+              </motion.a>
             </motion.div>
-          ))}
-        </motion.div>
-      </section>
-
-      {/* Section Divider */}
-      <div className="relative h-24">
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-b from-[#F8F7F4]/50 to-transparent"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-        ></motion.div>
-      </div>
-
-      {/* Contact Section */}
-      <section ref={contactRef} className="relative py-24 md:py-32 px-4 md:px-6 max-w-3xl mx-auto">
-        <motion.div className="mb-16 space-y-2">
-          <motion.p
-            className="text-sm uppercase tracking-widest text-[#2C2C2C]/60 font-light"
-            initial={{ opacity: 0, y: 20 }}
-            animate={contactInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            05 — Connect
-          </motion.p>
-
-          <motion.h2
-            className="text-4xl md:text-5xl font-light font-display tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={contactInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            Contact
-          </motion.h2>
-        </motion.div>
-
-        <motion.div
-          className="space-y-12"
-          initial="hidden"
-          animate={contactInView ? "visible" : "hidden"}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
-          }}
-        >
-          <motion.form
-            className="space-y-6"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
-              },
-            }}
-          >
-            <div className="space-y-2">
-              <label htmlFor="name" className="text-lg text-[#2C2C2C]/80">
-                Name
-              </label>
-              <Input
-                id="name"
-                className="bg-white/50 backdrop-blur-sm border-[#2C2C2C]/20 rounded-lg p-6 text-lg focus-visible:ring-[#BCC6B6] shadow-md"
-                placeholder="Your name"
-              />
-            </div>
-            <div className="space-y-2">
-              <label htmlFor="email" className="text-lg text-[#2C2C2C]/80">
-                Email
-              </label>
-              <Input
-                id="email"
-                type="email"
-                className="bg-white/50 backdrop-blur-sm border-[#2C2C2C]/20 rounded-lg p-6 text-lg focus-visible:ring-[#BCC6B6] shadow-md"
-                placeholder="Your email"
-              />
-            </div>
-            <div className="space-y-2">
-              <label htmlFor="message" className="text-lg text-[#2C2C2C]/80">
-                Message
-              </label>
-              <Textarea
-                id="message"
-                className="bg-white/50 backdrop-blur-sm border-[#2C2C2C]/20 rounded-lg p-6 text-lg min-h-[150px] focus-visible:ring-[#BCC6B6] shadow-md"
-                placeholder="Your message"
-              />
-            </div>
-            <Button className="w-full bg-[#BCC6B6] hover:bg-[#BCC6B6]/90 text-[#2C2C2C] rounded-lg py-6 text-lg relative overflow-hidden group shadow-lg">
-              <span className="relative z-10">Send Message</span>
-              <span className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></span>
-              <span className="absolute -inset-px bg-gradient-to-r from-[#BCC6B6] to-[#BCC6B6]/80 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500"></span>
-            </Button>
-          </motion.form>
-
-          <motion.div
-            className="flex justify-center space-x-8"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] },
-              },
-            }}
-          >
-            <motion.a
-              href="https://github.com/notdulain"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -5, scale: 1.1 }}
-              transition={{ duration: 0.3 }}
-              className="p-3 rounded-full bg-white/50 backdrop-blur-sm shadow-md"
-            >
-              <Github className="h-6 w-6 text-[#2C2C2C]/70" />
-              <span className="sr-only">GitHub</span>
-            </motion.a>
-            <motion.a
-              href="https://www.linkedin.com/in/dulain-nethwin-gunawardhana-41b251294/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -5, scale: 1.1 }}
-              transition={{ duration: 0.3 }}
-              className="p-3 rounded-full bg-white/50 backdrop-blur-sm shadow-md"
-            >
-              <Linkedin className="h-6 w-6 text-[#2C2C2C]/70" />
-              <span className="sr-only">LinkedIn</span>
-            </motion.a>
-            <motion.a
-              href="https://instagram.com/notdulain/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -5, scale: 1.1 }}
-              transition={{ duration: 0.3 }}
-              className="p-3 rounded-full bg-white/50 backdrop-blur-sm shadow-md"
-            >
-              <Instagram className="h-6 w-6 text-[#2C2C2C]/70" />
-              <span className="sr-only">Instagram</span>
-            </motion.a>
           </motion.div>
-        </motion.div>
-      </section>
+        </section>
+      </div>
 
       {/* Footer */}
       <footer className="relative py-12 border-t border-[#2C2C2C]/10 overflow-hidden">

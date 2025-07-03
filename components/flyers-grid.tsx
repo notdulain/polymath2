@@ -128,7 +128,7 @@ export default function FlyersGrid() {
             {flyers.map((flyer, index) => (
               <motion.div
                 key={index}
-                className="group relative aspect-[3/4] rounded-lg overflow-hidden flex-shrink-0 w-[300px]" // Adjust width as needed
+                className="group relative aspect-[3/4] rounded-lg overflow-hidden flex-shrink-0 w-[300px] shadow-lg shadow-[0_4px_20px_rgba(0,0,0,0.08)]" // Adjust width as needed
               >
                 <Image
                   src={flyer.image}

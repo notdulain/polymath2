@@ -77,7 +77,7 @@ export default function ProjectsGrid() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group relative aspect-[16/10] rounded-lg overflow-hidden flex-shrink-0 w-[420px]"
+                className="group relative aspect-[16/9] rounded-lg overflow-hidden flex-shrink-0 w-[480px] shadow-lg shadow-zinc-300/30"
               >
                 <img
                   src={project.image}

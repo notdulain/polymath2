@@ -112,7 +112,7 @@ export default function VideosGrid() {
   }
 
   return (
-    <section className="py-12 px-4 md:px-6 bg-zinc-50">
+    <section className="py-12 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -137,7 +137,7 @@ export default function VideosGrid() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group relative aspect-[9/16] rounded-lg overflow-hidden flex-shrink-0 w-[300px]"
+                className="group relative aspect-[9/16] rounded-lg overflow-hidden flex-shrink-0 w-[300px] shadow-lg shadow-zinc-300/30"
               >
                 <img
                   src={video.thumbnail}
