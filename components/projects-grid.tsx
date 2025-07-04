@@ -170,7 +170,7 @@ export default function ProjectsGrid() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="relative bg-zinc-900/80 text-white rounded-2xl shadow-2xl w-[384px] h-[576px] md:w-full md:h-full md:max-w-[90vw] lg:max-w-[1300px] md:h-[90vh] md:max-h-[700px] flex flex-col md:flex-row md:overflow-hidden p-3 md:p-8 backdrop-blur-md border border-zinc-700"
+            className="relative bg-zinc-900/80 text-white rounded-2xl shadow-2xl w-[384px] h-[640px] md:w-full md:h-full md:max-w-[90vw] lg:max-w-[1300px] md:h-[90vh] md:max-h-[700px] flex flex-col md:flex-row md:overflow-hidden p-3 md:p-8 backdrop-blur-md border border-zinc-700"
             onClick={e => e.stopPropagation()}
           >
             {/* Video (16:9) on the left, content on the right */}
@@ -202,7 +202,7 @@ export default function ProjectsGrid() {
               <div className="pl-3 md:pl-4">
                 <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4">{selectedProject.title}</h2>
                 {selectedProject.details.split(/\n{2,}/).map((para, idx) => (
-                  <p key={idx} className="text-zinc-300 mb-4 md:mb-6 text-base md:text-lg">{para}</p>
+                  <p key={idx} className="text-zinc-300 mb-4 text-sm md:text-lg md:mb-6">{para}</p>
                 ))}
                 {/* Tech stack pills */}
                 <div className="flex flex-wrap gap-2 md:gap-3 lg:gap-2 mb-4 md:mb-8">
