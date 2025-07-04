@@ -177,7 +177,7 @@ export default function ProjectsGrid() {
             <div className="w-full flex flex-col justify-start items-center h-auto md:w-[55%] md:min-w-[480px] md:justify-center md:p-8 p-1 pt-4 md:pt-8">
               <div className="w-full aspect-[16/9] max-w-[320px] md:max-w-2xl rounded-xl overflow-hidden shadow-lg flex items-center justify-center bg-zinc-900/80 backdrop-blur-md">
                 {selectedProject.video ? (
-                  <video
+                  <video preload='metadata'
                     src={selectedProject.video}
                     autoPlay
                     loop
