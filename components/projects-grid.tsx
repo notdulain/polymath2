@@ -11,10 +11,10 @@ const projects = [
     image: "/tmpl.png",
     category: "Web App",
     link: "#",
-    details: "A full-stack web application for live cricket score entry and viewing, used in a real tournament.",
-    github: "https://github.com/yourusername/tmpl-website",
-    video: "https://www.youtube.com/embed/BI9DTc4oFLA",
-    tech: ["React", "Node.js", "MongoDB", "TailwindCSS"],
+    details: "Built in a week for a Toastmasters cricket tournament. Live score updates, team registration, NRR leaderboard, and a bracket that actually worked.\n\n Debugged half of it during the matches. Learned more in one day than any lecture ever taught me.\n\n Built it. Broke it. Fixed it. Loved it.",
+    github: "https://github.com/notdulain/tmpl-website",
+    video: "/videos/tmpl_demo.mp4",
+    tech: ["TypeScript", "Next.js", "Firebase", "TailwindCSS"],
   },
   {
     id: 2,
@@ -179,8 +179,12 @@ export default function ProjectsGrid() {
                 {selectedProject.video ? (
                   <video
                     src={selectedProject.video}
-                    controls
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className="w-full h-full object-contain bg-zinc-900"
+                    style={{ maxHeight: '100%', maxWidth: '100%' }}
                   >
                     Your browser does not support the video tag.
                   </video>
@@ -195,9 +199,11 @@ export default function ProjectsGrid() {
             </div>
             {/* Details on the right */}
             <div className="flex-1 w-full px-1 md:px-10 pt-2 md:pt-12 pb-1 md:pb-8 flex flex-col justify-between min-w-0 md:min-w-[350px]">
-              <div className="pl-3 md:pl-10">
+              <div className="pl-3 md:pl-4">
                 <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4">{selectedProject.title}</h2>
-                <p className="text-zinc-300 mb-4 md:mb-6 text-base md:text-lg">{selectedProject.details}</p>
+                {selectedProject.details.split(/\n{2,}/).map((para, idx) => (
+                  <p key={idx} className="text-zinc-300 mb-4 md:mb-6 text-base md:text-lg">{para}</p>
+                ))}
                 {/* Tech stack pills */}
                 <div className="flex flex-wrap gap-2 md:gap-3 lg:gap-2 mb-4 md:mb-8">
                   {selectedProject.tech && selectedProject.tech.map((tech, idx) => (
