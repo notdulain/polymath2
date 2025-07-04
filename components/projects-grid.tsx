@@ -10,8 +10,9 @@ const projects = [
     description: "Live score entry and viewer site for a cricket tournament.",
     image: "/tmpl.png",
     category: "Web App",
-    link: "#",
-    details: "Built in a week for a Toastmasters cricket tournament. Live score updates, team registration, NRR leaderboard, and a bracket that actually worked.\n\n Debugged half of it during the matches. Learned more in one day than any lecture ever taught me.\n\n Built it. Broke it. Fixed it. Loved it.",
+    link: "https://watchtmpl.com/home",
+    website: "watchtmpl.com",
+    details: "With the help of a friend, we built this in a week for a Toastmasters cricket tournament. Live score updates, team registration, NRR leaderboard, and a bracket that actually worked.\n\n Debugged half of it during the matches. Learned more in one day than any lecture ever taught me.\n\n Built it. Broke it. Fixed it. Loved it.",
     github: "https://github.com/notdulain/tmpl-website",
     video: "/videos/tmpl_demo.mp4",
     tech: ["TypeScript", "Next.js", "Firebase", "TailwindCSS"],
@@ -207,7 +208,7 @@ export default function ProjectsGrid() {
                 {/* Tech stack pills */}
                 <div className="flex flex-wrap gap-2 md:gap-3 lg:gap-2 mb-4 md:mb-8">
                   {selectedProject.tech && selectedProject.tech.map((tech, idx) => (
-                    <span key={idx} className="inline-block px-4 py-1 md:px-6 md:py-2 lg:px-4 lg:py-1.5 rounded-full bg-zinc-800 text-xs md:text-base lg:text-sm font-semibold tracking-wide border border-zinc-700">
+                    <span key={idx} className="inline-block px-2 py-0.5 md:px-3 md:py-1 lg:px-2.4 lg:py-1 rounded-full bg-zinc-800 text-xs md:text-base lg:text-sm font-semibold tracking-wide border border-zinc-700">
                       {tech}
                     </span>
                   ))}
@@ -219,12 +220,23 @@ export default function ProjectsGrid() {
                     href={selectedProject.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 lg:w-12 lg:h-12 rounded-full bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 transition-colors"
+                    className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 lg:w-12 lg:h-12 rounded-full bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 transition-colors mr-3"
                   >
                     {/* GitHub SVG icon */}
                     <svg viewBox="0 0 24 24" fill="currentColor" className="w-7 h-7 md:w-9 md:h-9 lg:w-7 lg:h-7">
                       <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .268.18.579.688.481C19.138 20.2 22 16.448 22 12.021 22 6.484 17.523 2 12 2z" />
                     </svg>
+                  </a>
+                )}
+                {selectedProject.link && selectedProject.link !== '#' && (
+                  <a
+                    href={selectedProject.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center h-12 md:h-16 lg:h-12 px-3.5 md:px-3.5 lg:px-3.5 rounded-full bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 transition-colors text-base md:text-lg lg:text-base font-semibold gap-2"
+                  >
+                    <span className="text-xl md:text-2xl lg:text-xl">🔗</span>
+                    <span className="truncate max-w-[120px] md:max-w-[200px] lg:max-w-[140px]">{selectedProject.website}</span>
                   </a>
                 )}
               </div>
