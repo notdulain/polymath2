@@ -172,7 +172,7 @@ export default function ProjectsGrid() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="relative bg-zinc-900/65 text-white rounded-2xl shadow-2xl w-full max-w-[384px] min-h-[640px] max-h-[85vh] md:w-full md:h-full md:max-w-[90vw] lg:max-w-[1300px] md:h-[90vh] md:max-h-[700px] flex flex-col md:flex-row md:overflow-hidden p-3 md:p-8 backdrop-blur-md border border-zinc-700"
+            className="relative bg-zinc-900/65 text-white rounded-2xl shadow-2xl w-full max-w-[384px] h-auto max-h-[85vh] md:w-full md:h-full md:max-w-[90vw] lg:max-w-[1300px] md:h-[90vh] md:max-h-[700px] flex flex-col md:flex-row md:overflow-hidden p-3 md:p-8 backdrop-blur-md border border-zinc-700"
             onClick={e => e.stopPropagation()}
           >
             {/* Video (16:9) on the left, content on the right */}
