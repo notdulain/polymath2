@@ -25,9 +25,9 @@ const projects = [
     category: "Full Stack",
     link: "https://mansagym.me",
     website: "mansagym.me",
-    details: "Our full-stack group project for Y2S1.\n\nHandles everything from member registration to workout plans, staff shifts, equipment tracking, ticketing, and QR code-based attendance. Basically, if a gym could run itself, this would be it. \n\nBuilt with Java - SpringBoot, MySQL, and React. \n\nSweated more on the code than we ever did at an actual gym.",
+    details: "Our full-stack group project for Y2S1.\n\nHandles everything from member registration to workout plans, staff shifts, equipment tracking, ticketing, and QR code-based attendance. Basically, if a gym could run itself, this would be it. \n\nBuilt with Java - SpringBoot, MySQL, and React. Sweated more on the code than we ever did at an actual gym. \n\n🚧 Note: Backend's currently offline (Railway free credits said goodbye). Demo's on pause, but the build? Solid.",
     github: "https://github.com/SLIIT-FacultyOfComputing/group-project-group-5#",
-    video: "",
+    video: "/videos/gymsync_demo.mp4",
     tech: ["Springboot", "React", "Node.js", "MySQL"],
   },
   {
