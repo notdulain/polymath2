@@ -160,7 +160,7 @@ export default function ProjectsGrid() {
 
       {/* Modal for Project Details */}
       {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-0">
           {/* Blurred background overlay */}
           <div
             className="absolute inset-0 bg-black/70 backdrop-blur-sm"
@@ -172,11 +172,11 @@ export default function ProjectsGrid() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="relative bg-zinc-900/80 text-white rounded-2xl shadow-2xl w-[384px] h-[640px] md:w-full md:h-full md:max-w-[90vw] lg:max-w-[1300px] md:h-[90vh] md:max-h-[700px] flex flex-col md:flex-row md:overflow-hidden p-3 md:p-8 backdrop-blur-md border border-zinc-700"
+            className="relative bg-zinc-900/65 text-white rounded-2xl shadow-2xl w-full max-w-[384px] min-h-[640px] max-h-[85vh] md:w-full md:h-full md:max-w-[90vw] lg:max-w-[1300px] md:h-[90vh] md:max-h-[700px] flex flex-col md:flex-row md:overflow-hidden p-3 md:p-8 backdrop-blur-md border border-zinc-700"
             onClick={e => e.stopPropagation()}
           >
             {/* Video (16:9) on the left, content on the right */}
-            <div className="w-full flex flex-col justify-start items-center h-auto md:w-[55%] md:min-w-[480px] md:justify-center md:p-8 p-1 pt-4 md:pt-8">
+            <div className="w-full flex flex-col justify-start items-center h-auto md:w-[55%] md:min-w-[480px] md:justify-center md:p-8 p-1 pt-4 md:pt-8 flex-shrink-0">
               <div className="w-full aspect-[16/9] max-w-[320px] md:max-w-2xl rounded-xl overflow-hidden shadow-lg flex items-center justify-center bg-zinc-900/80 backdrop-blur-md">
                 {selectedProject.video ? (
                   <video preload='metadata'
@@ -200,7 +200,7 @@ export default function ProjectsGrid() {
               </div>
             </div>
             {/* Details on the right */}
-            <div className="flex-1 w-full px-1 md:px-10 pt-2 md:pt-12 pb-1 md:pb-8 flex flex-col justify-between min-w-0 md:min-w-[350px]">
+            <div className="flex-1 w-full px-1 md:px-10 pt-2 md:pt-12 pb-1 md:pb-8 flex flex-col justify-between min-w-0 md:min-w-[350px] overflow-y-auto md:overflow-visible">
               <div className="pl-3 md:pl-4">
                 <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4">{selectedProject.title}</h2>
                 {selectedProject.details.split(/\n{2,}/).map((para, idx) => (
