@@ -50,10 +50,10 @@ const projects = [
     image: "/hextractor.png",
     category: "Dev Tool",
     link: "#",
-    details: "A developer tool to pick colors from anywhere on the screen and get their hex codes instantly.",
+    details: "I got tired of taking screenshots and uploading them to imagecolorpicketr.com just to grab a hex code off my own screen. \n\nSo I made a tool that does it in one move: Hit Shift+C, then click anywhere on the screen. The color under your cursor gets copied as a hex code, instantly. \n\nNo fuss. No pop-ups. Just point, click, paste.",
     github: "https://github.com/yourusername/hextractor",
     video: "",
-    tech: ["Electron", "React"],
+    tech: ["AutoHotKey V1"],
   },
   {
     id: 5,
@@ -204,9 +204,26 @@ export default function ProjectsGrid() {
             <div className="flex-1 w-full px-1 md:px-10 pt-2 md:pt-12 pb-1 md:pb-8 flex flex-col justify-between min-w-0 md:min-w-[350px] overflow-y-auto md:overflow-visible">
               <div className="pl-3 md:pl-4">
                 <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4">{selectedProject.title}</h2>
-                {selectedProject.details.split(/\n{2,}/).map((para, idx) => (
-                  <p key={idx} className="text-zinc-300 mb-4 text-sm md:text-lg md:mb-6">{para}</p>
-                ))}
+                {selectedProject.details.split(/\n{2,}/).map((para, idx) => {
+                  // Check if paragraph starts with a number followed by a dot or parenthesis
+                  const numberedStepMatch = para.trim().match(/^(\d+)[.)]\s*(.+)$/);
+                  
+                  if (numberedStepMatch) {
+                    const [, number, content] = numberedStepMatch;
+                    return (
+                      <div key={idx} className="flex items-start mb-2 text-sm md:text-lg md:mb-1">
+                        <span className="flex-shrink-0 text-zinc-300 text-sm md:text-lg font-semibold mr-3 md:mr-4">
+                          {number}.
+                        </span>
+                        <p className="text-zinc-300 flex-1">{content}</p>
+                      </div>
+                    );
+                  }
+                  
+                  return (
+                    <p key={idx} className="text-zinc-300 mb-4 text-sm md:text-lg md:mb-6">{para}</p>
+                  );
+                })}
                 {/* Tech stack pills */}
                 <div className="flex flex-wrap gap-2 md:gap-3 lg:gap-2 mb-4 md:mb-8">
                   {selectedProject.tech && selectedProject.tech.map((tech, idx) => (
