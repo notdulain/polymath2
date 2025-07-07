@@ -16,6 +16,7 @@ import FlyersGrid from "@/components/flyers-grid"
 import VideosGrid from "@/components/videos-grid"
 import ProjectsGrid from "@/components/projects-grid"
 import Link from "next/link"
+import AboutMeSection from "@/components/aboutme-section"
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -134,15 +135,9 @@ export default function Home() {
         aria-hidden="true"
       />
 
-      {/* Grain Effect */}
-      <GrainEffect />
-
-      {/* Floating Particles */}
-      <FloatingParticles />
-
       {/* Minimal Centered Navbar */}
       <motion.nav
-        className="fixed top-0 left-0 w-full z-50 flex justify-center items-center py-4 bg-transparent"
+        className="fixed top-0 left-0 w-full z-50 flex justify-center items-center py-7 bg-transparent"
         initial={{ opacity: 0, y: -20 }}
         animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -324,27 +319,12 @@ export default function Home() {
             </motion.div>
           </motion.div>
         </div>
-
-        <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-          initial={{ opacity: 0, y: -10 }}
-          animate={heroInView ? { opacity: 0.7, y: 0 } : { opacity: 0, y: -10 }}
-          transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center items-start p-1">
-            <motion.div
-              className="w-1 h-2 bg-white/50 rounded-full"
-              animate={{ y: [0, 4, 0] }}
-              transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, repeatType: "loop", ease: "easeInOut" }}
-            ></motion.div>
-          </div>
-        </motion.div>
       </section>
 
       {/* Main Content (sections) */}
       <div className="relative z-10">
-        {/* Polymath Bar */}
-        <PolymathBar />
+        {/* About Me Section */}
+        <AboutMeSection />
 
         {/* Projects Section */}
         <ProjectsGrid />
