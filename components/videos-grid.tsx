@@ -7,83 +7,51 @@ const videos = [
   {
     id: 1,
     title: "Milestone Video",
-    description: "The story of building a legacy: Central Link",
-    thumbnail: "/thumbnails/milestone.JPG",
-    category: "Storyteller",
-    youtubeID: "De3DhlN8yik",
-    videoUrl: "https://youtu.be/De3DhlN8yik",
-    link: "https://www.instagram.com/reel/DESJCVjABom/",
+    src: "/videos/milestone.mp4",
+    ratio: "horizontal",
   },
   {
     id: 2,
     title: "Year Recap Video",
-    description: "The video that unfolds the TM year 2023/24 of Central Link",
-    thumbnail: "/thumbnails/2023recap.JPG",
-    category: "Nostalgia",
-    youtubeID: "r41LcnUBgsM",
-    videoUrl: "https://youtu.be/r41LcnUBgsM",
-    link: "https://www.instagram.com/reel/C8yq-SRyZZb/",
+    src: "/videos/2023recap.mp4",
+    ratio: "vertical",
   },
   {
     id: 3,
     title: "Ovation 2024",
-    description: "Reliving the Ovation memories",
-    thumbnail: "/thumbnails/ovation.JPG",
-    category: "Storyteller",
-    youtubeID: "sZ-kkKJz2Yc",
-    videoUrl: "https://youtu.be/sZ-kkKJz2Yc",
-    link: "https://www.instagram.com/reel/C7jQxZRvwyM/",
+    src: "/videos/ovation.mp4",
+    ratio: "horizontal",
   },
   {
     id: 4,
     title: "Kokis 2024",
-    description: "Reliving the unforgettable day where Central Link celebrated Aurudu",
-    thumbnail: "/thumbnails/kokis.JPG",
-    category: "Storyteller",
-    youtubeID: "Gkkp3xfkplE",
-    videoUrl: "https://youtu.be/Gkkp3xfkplE",
-    link: "https://www.instagram.com/reel/C6rBc46Po9e/",
+    src: "/videos/kokis.mp4",
+    ratio: "horizontal",
   },
   {
     id: 5,
     title: "TMPL Website Launch",
-    description: "The launch video for the website me & a friend created for TMPL 2025",
-    thumbnail: "/thumbnails/tmpl.JPG",
-    category: "Website launch",
-    youtubeID: "BI9DTc4oFLA",
-    videoUrl: "https://youtu.be/BI9DTc4oFLA",
-    link: "https://www.instagram.com/reel/DJawW7UBJYy/",
+    src: "/videos/tmpl_demo.mp4",
+    ratio: "vertical",
   },
   {
     id: 6,
     title: "Promo Video",
-    description: "A small promotional video I made for the club: not shared in social media",
-    thumbnail: "/thumbnails/promo.JPG",
-    category: "Quick edit",
-    youtubeID: "eFpZanIqv68",
-    videoUrl: "https://youtube.com/shorts/eFpZanIqv68?feature=shared",
-    link: "#",
+    src: "/videos/promo.mp4",
+    ratio: "vertical",
   },
   {
     id: 7,
     title: "Halloween 2024",
-    description: "A skit we filmed to promote the Halloween themed meeting: Toastmonsters",
-    thumbnail: "/thumbnails/halloween.JPG",
-    category: "Skit",
-    youtubeID: "yP7xagK5BYc",
-    videoUrl: "https://youtu.be/yP7xagK5BYc",
-    link: "https://www.instagram.com/reel/DB1JPDkNU_2/",
+    src: "/videos/halloween.mp4",
+    ratio: "vertical",
   },
   {
     id: 8,
     title: "RTC X CLTC",
-    description: "The recap video I made for the joint meeting we had with Rajagiriya Toastmasters club",
-    thumbnail: "/thumbnails/rtc.JPG",
-    category: "Recap",
-    youtubeID: "h8U39hxPh4o",
-    videoUrl: "https://youtu.be/h8U39hxPh4o",
-    link: "https://www.instagram.com/reel/C5istt0v2KT/",
-  }
+    src: "/videos/rtc.mp4",
+    ratio: "horizontal",
+  },
 ]
 
 function getYoutubeEmbedUrl(url: string) {
@@ -127,30 +95,40 @@ export default function VideosGrid() {
         <div className="relative">
           <div
             ref={scrollRef}
-            className="flex space-x-8 overflow-x-auto no-scrollbar scrollbar-none scroll-smooth touch-pan-x"
+            className="flex items-start space-x-8 overflow-x-auto no-scrollbar scrollbar-none scroll-smooth touch-pan-x scroll-snap-x"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {videos.map((video, index) => (
-              <motion.div
-                key={video.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group relative aspect-[9/16] rounded-lg overflow-hidden flex-shrink-0 w-[300px] shadow-lg shadow-zinc-300/30"
-              >
-                <img
-                  src={video.thumbnail}
-                  alt={video.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-white text-xl font-light">{video.title}</h3>
+            {videos.map((video, index) => {
+              // Assign width and aspect based on ratio
+              let cardClass = "w-[320px] aspect-[16/10]";
+              if (video.ratio === "vertical") {
+                cardClass = "w-[200px] aspect-[9/14]";
+              }
+              return (
+                <motion.div
+                  key={video.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className={`group relative rounded-xl shadow-lg bg-black overflow-hidden flex-shrink-0 cursor-pointer ${cardClass} scroll-snap-align-start`}
+                >
+                  <video
+                    src={video.src}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="text-white text-xl font-light mb-1">{video.title}</h3>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Arrows for Desktop */}

@@ -100,7 +100,7 @@ export default function ProjectsGrid() {
         <div className="relative">
           <div
             ref={scrollRef}
-            className="flex space-x-4 overflow-x-auto no-scrollbar scrollbar-none scroll-smooth touch-pan-x pb-2 md:pb-0"
+            className="flex space-x-4 overflow-x-auto overflow-y-hidden no-scrollbar scrollbar-none scroll-smooth touch-pan-x"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {projects.map((project, index) => (
@@ -110,7 +110,7 @@ export default function ProjectsGrid() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group relative aspect-[8/5] rounded-lg overflow-hidden flex-shrink-0 w-[320px] md:w-[400px] lg:w-[480px] shadow-lg shadow-zinc-300/30 cursor-pointer"
+                className="group relative aspect-[8/5] rounded-lg overflow-hidden flex-shrink-0 w-[320px] md:w-[400px] lg:w-[480px] shadow-2xl shadow-zinc-400/40 hover:shadow-[0_8px_32px_0_rgba(0,0,0,0.25)] transition-shadow duration-300 cursor-pointer"
                 onClick={() => setSelectedProject(project)}
               >
                 <img

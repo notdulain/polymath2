@@ -140,59 +140,45 @@ export default function Home() {
       {/* Floating Particles */}
       <FloatingParticles />
 
-      {/* Navbar */}
+      {/* Minimal Centered Navbar */}
       <motion.nav
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          showNavbar ? "translate-y-0" : "-translate-y-full",
-        )}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
+        className="fixed top-0 left-0 w-full z-50 flex justify-center items-center py-4 bg-transparent"
+        initial={{ opacity: 0, y: -20 }}
+        animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="mx-auto px-6 py-4 backdrop-blur-md bg-white/5 border-b border-white/20 shadow-xl rounded-2xl">
-          <div className="flex justify-between items-center">
-            <motion.div
-              className="text-zinc-700 transition-colors"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              Dulain
-            </motion.div>
-
-            <div className="hidden md:flex space-x-8">
-              {[
-                { name: "Home", ref: heroRef },
-                { name: "About", ref: aboutRef },
-                { name: "Work", ref: workRef },
-                { name: "Skills", ref: skillsRef },
-                { name: "Contact", ref: contactRef },
-              ].map((item, index) => (
-                <motion.button
-                  key={index}
-                  className="text-zinc-700 hover:text-white transition-colors duration-200"
-                  onClick={() => scrollToSection(item.ref)}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4}}
-                  whileHover={{ y: -2 }}
-                >
-                  {item.name}
-                </motion.button>
-              ))}
-            </div>
-
+        {/* Desktop Nav */}
+        <div className="hidden md:flex space-x-8">
+          {[
+            { name: "About", ref: aboutRef },
+            { name: "Work", ref: workRef },
+            { name: "Skills", ref: skillsRef },
+            { name: "Contact", ref: contactRef },
+          ].map((item, index) => (
             <motion.button
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.6 }}
+              key={index}
+              className="text-xs md:text-sm uppercase tracking-widest text-white/80 font-light focus:outline-none"
+              whileHover={{ scale: 1.13 }}
+              whileFocus={{ scale: 1.13 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 18 }}
+              onClick={() => scrollToSection(item.ref)}
+              style={{ background: 'none', border: 'none', outline: 'none' }}
             >
-              <Menu className="h-6 w-6" />
+              {item.name}
             </motion.button>
-          </div>
+          ))}
+        </div>
+        {/* Hamburger for Mobile */}
+        <div className="flex md:hidden w-full justify-end pr-6">
+          <button
+            className="flex flex-col justify-center items-center w-9 h-9 group"
+            onClick={() => setIsMenuOpen(true)}
+            aria-label="Open menu"
+          >
+            <span className="block w-6 h-0.5 bg-white/80 rounded transition-all duration-300 group-hover:scale-x-110"></span>
+            <span className="block w-6 h-0.5 bg-white/80 rounded mt-1.5 transition-all duration-300 group-hover:scale-x-110"></span>
+            <span className="block w-6 h-0.5 bg-white/80 rounded mt-1.5 transition-all duration-300 group-hover:scale-x-110"></span>
+          </button>
         </div>
       </motion.nav>
 
@@ -200,25 +186,21 @@ export default function Home() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="fixed inset-0 bg-[#FAF9F6] z-50 flex flex-col justify-center items-center"
+            className="fixed inset-0 bg-[#181818] bg-opacity-95 z-50 flex flex-col justify-center items-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <motion.button
-              className="absolute top-6 right-6"
+            <button
+              className="absolute top-6 right-6 p-2 rounded-full hover:bg-white/10 transition-colors"
               onClick={() => setIsMenuOpen(false)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
+              aria-label="Close menu"
             >
-              <X className="h-6 w-6" />
-            </motion.button>
-
-            <div className="flex flex-col space-y-6 items-center">
+              <X className="h-7 w-7 text-white/80" />
+            </button>
+            <div className="flex flex-col space-y-8 items-center">
               {[
-                { name: "Home", ref: heroRef },
                 { name: "About", ref: aboutRef },
                 { name: "Work", ref: workRef },
                 { name: "Skills", ref: skillsRef },
@@ -226,11 +208,13 @@ export default function Home() {
               ].map((item, index) => (
                 <motion.button
                   key={index}
-                  className="text-xl text-[#2C2C2C]/70 hover:text-[#2C2C2C] transition-colors tracking-wide"
-                  onClick={() => scrollToSection(item.ref)}
+                  className="text-base uppercase tracking-widest text-white/90 font-light focus:outline-none"
+                  whileHover={{ scale: 1.15 }}
+                  whileFocus={{ scale: 1.15 }}
+                  onClick={() => { scrollToSection(item.ref); setIsMenuOpen(false); }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.1 * index }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 18, duration: 0.4, delay: 0.1 * index }}
                 >
                   {item.name}
                 </motion.button>
