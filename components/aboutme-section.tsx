@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Compass, Briefcase, Rocket } from "lucide-react"
+import { useMotionValue, motion, useMotionTemplate } from "motion/react";
+import { cn } from "@/lib/utils";
 
 export default function AboutMeSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -44,6 +46,32 @@ export default function AboutMeSection() {
     }
   }, [])
 
+  // --- Interactive Dots Background Logic (from HeroHighlight) ---
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent<HTMLDivElement>) {
+    if (!currentTarget) return;
+    let { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
+
+  const dotPatterns = {
+    light: {
+      default:
+        "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%23d4d4d4' id='pattern-circle' cx='10' cy='10' r='2.5'%3E%3C/circle%3E%3C/svg%3E\")",
+      hover:
+        "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%236366f1' id='pattern-circle' cx='10' cy='10' r='2.5'%3E%3C/circle%3E%3C/svg%3E\")",
+    },
+    dark: {
+      default:
+        "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%23404040' id='pattern-circle' cx='10' cy='10' r='2.5'%3E%3C/circle%3E%3C/svg%3E\")",
+      hover:
+        "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%238183f4' id='pattern-circle' cx='10' cy='10' r='2.5'%3E%3C/circle%3E%3C/svg%3E\")",
+    },
+  };
+
   const columns = [
     {
       icon: Compass,
@@ -60,45 +88,77 @@ export default function AboutMeSection() {
     {
       icon: Rocket,
       title: "What I'm Good At",
-      content: "What I do. And... solving problems, learning fast. Also I can make a good french toast",
+      content: "What I do. And... solving problems, learning fast & public speaking. Also I can make a good french toast",
     },
   ]
 
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 px-4 overflow-hidden"
-      style={{
-        background: "linear-gradient(135deg, #fafafa 0%, #f8f9fa 50%, #ffffff 100%)",
-      }}
+      className="relative py-20 px-4 overflow-hidden bg-transparent"
+      onMouseMove={handleMouseMove}
     >
-      {/* Animated Background Blobs */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Blurred Hero Image Background */}
+      <div className="pointer-events-none absolute inset-0 z-[-2]">
+        <img
+          src="/mainPortrait2.jpg"
+          alt="Blurred hero background"
+          className="w-full h-full object-cover object-[50%_100%] blur-3xl scale-110 opacity-60"
+          draggable={false}
+        />
+        {/* Dark overlay for better contrast */}
+        <div className="absolute inset-0 bg-black/60" />
+      </div>
+      {/* Interactive Dots Background */}
+      <div className="pointer-events-none absolute inset-0 z-[-1]">
         <div
-          className="absolute w-96 h-96 rounded-full opacity-[0.03] blur-3xl animate-float-slow"
-          style={{
-            background: "radial-gradient(circle, #9ACCA7 0%, transparent 70%)",
-            top: "10%",
-            left: "10%",
-            transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`,
-          }}
+          className="absolute inset-0 dark:hidden"
+          style={{ backgroundImage: dotPatterns.light.default }}
         />
         <div
-          className="absolute w-80 h-80 rounded-full opacity-[0.04] blur-2xl animate-float-reverse"
+          className="absolute inset-0 hidden dark:block"
+          style={{ backgroundImage: dotPatterns.dark.default }}
+        />
+        <motion.div
+          className="absolute inset-0 dark:hidden"
           style={{
-            background: "radial-gradient(circle, #e5e7eb 0%, transparent 70%)",
-            top: "60%",
-            right: "15%",
-            transform: `translate(${mousePosition.x * -0.015}px, ${mousePosition.y * -0.015}px)`,
+            opacity: 1,
+            backgroundImage: dotPatterns.light.hover,
+            WebkitMaskImage: useMotionTemplate`
+              radial-gradient(
+                200px circle at ${mouseX}px ${mouseY}px,
+                black 0%,
+                transparent 100%
+              )
+            `,
+            maskImage: useMotionTemplate`
+              radial-gradient(
+                200px circle at ${mouseX}px ${mouseY}px,
+                black 0%,
+                transparent 100%
+              )
+            `,
           }}
         />
-        <div
-          className="absolute w-64 h-64 rounded-full opacity-[0.02] blur-2xl animate-pulse-slow"
+        <motion.div
+          className="absolute inset-0 hidden dark:block"
           style={{
-            background: "radial-gradient(circle, #9ACCA7 0%, transparent 70%)",
-            bottom: "20%",
-            left: "20%",
-            transform: `translateY(${scrollY * -0.1}px)`,
+            opacity: 1,
+            backgroundImage: dotPatterns.dark.hover,
+            WebkitMaskImage: useMotionTemplate`
+              radial-gradient(
+                200px circle at ${mouseX}px ${mouseY}px,
+                black 0%,
+                transparent 100%
+              )
+            `,
+            maskImage: useMotionTemplate`
+              radial-gradient(
+                200px circle at ${mouseX}px ${mouseY}px,
+                black 0%,
+                transparent 100%
+              )
+            `,
           }}
         />
       </div>
@@ -119,11 +179,11 @@ export default function AboutMeSection() {
         ))}
       </div>
 
-      {/* Glassmorphism Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/10 backdrop-blur-[0.5px]" />
+      {/* Glassmorphism Overlay (optional, can be commented out if it blocks background) */}
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/10 backdrop-blur-[0.5px] z-0" /> */}
 
-      <div className="relative max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 w-full">
+      <div className="relative max-w-[1600px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-32 w-full min-w-0 justify-items-center">
           {columns.map((column, index) => {
             const Icon = column.icon
             return (
@@ -137,15 +197,15 @@ export default function AboutMeSection() {
                 }}
               >
                 {/* Glassmorphism Card */}
-                <div className="relative p-8 rounded-3xl bg-white/40 backdrop-blur-sm border border-white/20 shadow-xl shadow-gray-100/50 hover:shadow-2xl hover:shadow-gray-200/60 hover:-translate-y-2 transition-all duration-500 group-hover:bg-white/60 w-[340px] h-[200px] md:w-[380px] md:h-[220px] flex flex-col justify-center mx-auto">
+                <div className="relative p-5 md:p-12 rounded-3xl bg-white/40 backdrop-blur-sm border border-white/20 shadow-xl shadow-gray-100/50 hover:shadow-2xl hover:shadow-gray-200/60 hover:-translate-y-2 transition-all duration-500 group-hover:bg-white/60 w-full max-w-[320px] h-[160px] md:max-w-[480px] md:h-[300px] flex flex-col justify-center">
                   {/* Card Inner Glow */}
                   <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/30 via-transparent to-[#9ACCA7]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   <div className="relative">
                     {/* Enhanced Icon Container */}
-                    <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg shadow-gray-100/80 group-hover:shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 border border-white/40">
+                    <div className="inline-flex items-center justify-center w-10 h-10 md:w-20 md:h-20 mb-4 md:mb-8 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg shadow-gray-100/80 group-hover:shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 border border-white/40">
                       <Icon
-                        className="w-7 h-7 text-[#9ACCA7] group-hover:text-[#8BC49A] transition-all duration-300"
+                        className="w-6 h-6 md:w-10 md:h-10 text-[#9ACCA7] group-hover:text-[#8BC49A] transition-all duration-300"
                         strokeWidth={1.5}
                       />
 
@@ -159,10 +219,10 @@ export default function AboutMeSection() {
 
                   {/* Enhanced Content */}
                   <div className="relative space-y-4">
-                    <h3 className="text-lg font-semibold text-gray-900 tracking-tight group-hover:text-gray-800 transition-colors duration-300">
+                    <h3 className="text-base md:text-2xl font-semibold text-gray-900 tracking-tight group-hover:text-gray-800 transition-colors duration-300">
                       {column.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed max-w-xs mx-auto font-light group-hover:text-gray-700 transition-colors duration-300">
+                    <p className="text-xs md:text-lg text-gray-600 leading-relaxed max-w-xs mx-auto font-light group-hover:text-gray-700 transition-colors duration-300">
                       {column.content}
                     </p>
                   </div>
