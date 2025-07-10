@@ -88,7 +88,7 @@ export default function AboutMeSection() {
       icon: Compass,
       title: "Who I Am",
       content:
-        "Computer Science Undergraduate at SLIIT",
+        "Computer Science Undergraduate at SLIIT (the card doesn't have much space smh)",
     },
     {
       icon: Briefcase,
