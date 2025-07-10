@@ -49,18 +49,18 @@ export default function AboutMeSection() {
       icon: Compass,
       title: "Who I Am",
       content:
-        "I'm a curious creator who believes the best solutions come from understanding people, not just problems.",
+        "Computer Science Undergraduate at SLIIT",
     },
     {
       icon: Briefcase,
       title: "What I Do",
       content:
-        "I build digital experiences that matter — from clean code to thoughtful design, always with the user in mind.",
+        "Code full-stack apps, Edit Videos, Design Graphics and a LOT more",
     },
     {
       icon: Rocket,
       title: "What I'm Good At",
-      content: "I turn complex ideas into simple solutions, learn fast, and tell stories that connect.",
+      content: "What I do. And... solving problems, learning fast. Also I can make a good french toast",
     },
   ]
 
@@ -122,8 +122,8 @@ export default function AboutMeSection() {
       {/* Glassmorphism Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/10 backdrop-blur-[0.5px]" />
 
-      <div className="relative max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+      <div className="relative max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 w-full">
           {columns.map((column, index) => {
             const Icon = column.icon
             return (
@@ -137,7 +137,7 @@ export default function AboutMeSection() {
                 }}
               >
                 {/* Glassmorphism Card */}
-                <div className="relative p-8 rounded-3xl bg-white/40 backdrop-blur-sm border border-white/20 shadow-xl shadow-gray-100/50 hover:shadow-2xl hover:shadow-gray-200/60 hover:-translate-y-2 transition-all duration-500 group-hover:bg-white/60">
+                <div className="relative p-8 rounded-3xl bg-white/40 backdrop-blur-sm border border-white/20 shadow-xl shadow-gray-100/50 hover:shadow-2xl hover:shadow-gray-200/60 hover:-translate-y-2 transition-all duration-500 group-hover:bg-white/60 w-[340px] h-[200px] md:w-[380px] md:h-[220px] flex flex-col justify-center mx-auto">
                   {/* Card Inner Glow */}
                   <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/30 via-transparent to-[#9ACCA7]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
