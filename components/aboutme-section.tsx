@@ -9,6 +9,7 @@ export default function AboutMeSection() {
   const [isVisible, setIsVisible] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [scrollY, setScrollY] = useState(0)
+  const [particles, setParticles] = useState<{left: number, top: number, delay: number, duration: number}[]>([]);
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -39,6 +40,16 @@ export default function AboutMeSection() {
 
     window.addEventListener("mousemove", handleMouseMove)
     window.addEventListener("scroll", handleScroll)
+
+    // Generate random particles only on client
+    setParticles(
+      Array.from({ length: 12 }).map(() => ({
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        delay: Math.random() * 10,
+        duration: 15 + Math.random() * 10,
+      }))
+    );
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove)
@@ -107,10 +118,11 @@ export default function AboutMeSection() {
           draggable={false}
         />
         {/* Dark overlay for better contrast */}
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/35" />
       </div>
       {/* Interactive Dots Background */}
       <div className="pointer-events-none absolute inset-0 z-[-1]">
+        {/* Base dot pattern */}
         <div
           className="absolute inset-0 dark:hidden"
           style={{ backgroundImage: dotPatterns.light.default }}
@@ -119,61 +131,68 @@ export default function AboutMeSection() {
           className="absolute inset-0 hidden dark:block"
           style={{ backgroundImage: dotPatterns.dark.default }}
         />
+        {/* Zoomed dot pattern at cursor */}
         <motion.div
           className="absolute inset-0 dark:hidden"
           style={{
-            opacity: 1,
-            backgroundImage: dotPatterns.light.hover,
+            pointerEvents: 'none',
+            backgroundImage: dotPatterns.light.default,
+            backgroundSize: '200%',
+            backgroundPosition: `${-0.5 * mouseX.get() + 100}px ${-0.5 * mouseY.get() + 100}px`,
             WebkitMaskImage: useMotionTemplate`
               radial-gradient(
-                200px circle at ${mouseX}px ${mouseY}px,
+                120px circle at ${mouseX}px ${mouseY}px,
                 black 0%,
                 transparent 100%
               )
             `,
             maskImage: useMotionTemplate`
               radial-gradient(
-                200px circle at ${mouseX}px ${mouseY}px,
+                120px circle at ${mouseX}px ${mouseY}px,
                 black 0%,
                 transparent 100%
               )
             `,
+            opacity: 0.7,
           }}
         />
         <motion.div
           className="absolute inset-0 hidden dark:block"
           style={{
-            opacity: 1,
-            backgroundImage: dotPatterns.dark.hover,
+            pointerEvents: 'none',
+            backgroundImage: dotPatterns.dark.default,
+            backgroundSize: '200%',
+            backgroundPosition: `${-0.5 * mouseX.get() + 100}px ${-0.5 * mouseY.get() + 100}px`,
             WebkitMaskImage: useMotionTemplate`
               radial-gradient(
-                200px circle at ${mouseX}px ${mouseY}px,
+                120px circle at ${mouseX}px ${mouseY}px,
                 black 0%,
                 transparent 100%
               )
             `,
             maskImage: useMotionTemplate`
               radial-gradient(
-                200px circle at ${mouseX}px ${mouseY}px,
+                120px circle at ${mouseX}px ${mouseY}px,
                 black 0%,
                 transparent 100%
               )
             `,
+            opacity: 0.7,
           }}
         />
       </div>
 
       {/* Floating Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(12)].map((_, i) => (
+        {particles.map((p, i) => (
           <div
             key={i}
             className="absolute w-1 h-1 bg-[#9ACCA7] rounded-full opacity-10 animate-float-particle"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 10}s`,
-              animationDuration: `${15 + Math.random() * 10}s`,
+              left: `${p.left}%`,
+              top: `${p.top}%`,
+              animationDelay: `${p.delay}s`,
+              animationDuration: `${p.duration}s`,
             }}
           />
         ))}
@@ -219,10 +238,10 @@ export default function AboutMeSection() {
 
                   {/* Enhanced Content */}
                   <div className="relative space-y-4">
-                    <h3 className="text-base md:text-2xl font-semibold text-gray-900 tracking-tight group-hover:text-gray-800 transition-colors duration-300">
+                    <h3 className="text-base md:text-2xl font-semibold text-grey-900 tracking-tight group-hover:text-grey-800 transition-colors duration-300">
                       {column.title}
                     </h3>
-                    <p className="text-xs md:text-lg text-gray-600 leading-relaxed max-w-xs mx-auto font-light group-hover:text-gray-700 transition-colors duration-300">
+                    <p className="text-xs md:text-lg text-grey-900 leading-relaxed max-w-xs mx-auto font-grey-900 group-hover:text-grey-900 transition-colors duration-300">
                       {column.content}
                     </p>
                   </div>
