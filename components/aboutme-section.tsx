@@ -216,7 +216,7 @@ export default function AboutMeSection() {
                 }}
               >
                 {/* Glassmorphism Card */}
-                <div className="relative p-5 md:p-12 rounded-3xl bg-white/40 backdrop-blur-sm border border-white/20 shadow-xl shadow-gray-100/50 hover:shadow-2xl hover:shadow-gray-200/60 hover:-translate-y-2 transition-all duration-500 group-hover:bg-white/60 w-full max-w-[320px] h-[160px] md:max-w-[480px] md:h-[300px] flex flex-col justify-center">
+                <div className="relative px-6 py-8 md:px-10 md:py-12 rounded-3xl bg-white/40 backdrop-blur-sm border border-white/20 shadow-xl shadow-gray-100/50 hover:shadow-2xl hover:shadow-gray-200/60 hover:-translate-y-2 transition-all duration-500 group-hover:bg-white/60 w-full max-w-[340px] min-w-[260px] h-[200px] min-h-[200px] md:max-w-[480px] md:h-[300px] flex flex-col justify-center">
                   {/* Card Inner Glow */}
                   <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/30 via-transparent to-[#9ACCA7]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
