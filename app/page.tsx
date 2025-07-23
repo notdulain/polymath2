@@ -12,9 +12,6 @@ import FloatingParticles from "@/components/floating-particles"
 import HorizontalScroll from "@/components/horizontal-scroll"
 import { cn } from "@/lib/utils"
 import PolymathBar from "@/components/polymath-bar"
-import FlyersGrid from "@/components/flyers-grid"
-import VideosGrid from "@/components/videos-grid"
-import ProjectsGrid from "@/components/projects-grid"
 import Link from "next/link"
 import AboutMeSection from "@/components/aboutme-section"
 
@@ -323,18 +320,29 @@ export default function Home() {
 
       {/* Main Content (sections) */}
       <div className="relative z-10">
-        {/* About Me Section */}
-        <AboutMeSection />
+        {/* About Me Section
+        <AboutMeSection /> */}
 
-        {/* Projects Section */}
-        <ProjectsGrid />
-
-        {/* Flyers Section */}
-        <FlyersGrid />
-
-        {/* Videos Section */}
-        <VideosGrid />
-
+        {/* Combined Work Section with Tabs - moved immediately after AboutMeSection */}
+        <section className="relative py-24 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
+          <div className="flex flex-col items-center">
+            <div className="flex justify-center items-center gap-6 md:gap-12 mb-12">
+              {['Projects', 'Designs', 'Videos', 'Photography'].map((tab, idx) => (
+                <button
+                  key={tab}
+                  className="text-sm md:text-base uppercase tracking-widest text-zinc-700 font-zinc px-3 py-2 rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 hover:bg-white/10"
+                  // onClick={() => setActiveTab(tab)}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
+            {/* TODO: Add tab content here */}
+            <div className="w-full min-h-[300px] flex items-center justify-center text-white/60 text-lg font-light">
+              Select a tab to view content.
+            </div>
+          </div>
+        </section>
 
         {/* Section Divider */}
         <div className="relative h-24">
