@@ -324,19 +324,66 @@ export default function Home() {
         <AboutMeSection /> */}
 
         {/* Combined Work Section with Tabs - moved immediately after AboutMeSection */}
-        <section className="relative py-24 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
+        <section className="relative pt-10 md:pt-16 pb-24 md:pb-32 px-4 md:px-6 max-w-7xl mx-auto">
           <div className="flex flex-col items-center">
-            <div className="flex justify-center items-center gap-6 md:gap-12 mb-12">
-              {['Projects', 'Designs', 'Videos', 'Photography'].map((tab, idx) => (
-                <button
-                  key={tab}
-                  className="text-sm md:text-base uppercase tracking-widest text-zinc-700 font-zinc px-3 py-2 rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 hover:bg-white/10"
-                  // onClick={() => setActiveTab(tab)}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
+            <h2 className="text-3xl md:text-5xl font-light tracking-tight text-zinc-700 mb-10">My Work</h2>
+            {/* Tabs with animated selector */}
+            {(() => {
+              const tabList = ['Projects', 'Designs', 'Videos', 'Photography'];
+              const [activeTab, setActiveTab] = useState('Projects');
+              const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+              const [selectorStyle, setSelectorStyle] = useState({ left: 0, width: 0 });
+
+              // Update selector position on tab change
+              const updateSelector = (tab: string) => {
+                const idx = tabList.indexOf(tab);
+                const btn = tabRefs.current[idx];
+                if (btn) {
+                  const rect = btn.getBoundingClientRect();
+                  const parentRect = btn.parentElement?.getBoundingClientRect();
+                  if (parentRect) {
+                    setSelectorStyle({ left: rect.left - parentRect.left, width: rect.width });
+                  }
+                }
+              };
+
+              // On mount and tab change
+              useEffect(() => {
+                updateSelector(activeTab);
+                // Recalculate on window resize
+                const handleResize = () => updateSelector(activeTab);
+                window.addEventListener('resize', handleResize);
+                return () => window.removeEventListener('resize', handleResize);
+              }, [activeTab]);
+
+              return (
+                <div className="div className=flex overflow-x-auto no-scrollbar gap-2 px-2">
+                  {/* Animated selector */}
+                  <div
+                    className="absolute bottom-0 h-9 md:h-10 transition-all duration-300 z-0"
+                    style={{ left: selectorStyle.left, width: selectorStyle.width, pointerEvents: 'none' }}
+                  >
+                    <div className="w-full h-full rounded-full border-2 border-zinc-400 transition-all duration-300 px-5" />
+                  </div>
+                  {tabList.map((tab, idx) => (
+                    <button
+                      key={tab}
+                      ref={el => { tabRefs.current[idx] = el; }}
+                      className={
+                        "relative z-10 text-[11px] md:text-base uppercase tracking-widest font-zinc px-2 md:px-5 py-1 md:py-2 rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 " +
+                        (activeTab === tab
+                          ? "text-zinc-700 font-semibold"
+                          : "text-zinc-700 hover:bg-white/10")
+                      }
+                      style={{ minWidth: 64 }}
+                      onClick={() => setActiveTab(tab)}
+                    >
+                      {tab}
+                    </button>
+                  ))}
+                </div>
+              );
+            })()}
             {/* TODO: Add tab content here */}
             <div className="w-full min-h-[300px] flex items-center justify-center text-white/60 text-lg font-light">
               Select a tab to view content.
